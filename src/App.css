@@ -1,0 +1,930 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url(https://db.onlinewebfonts.com/c/0da4520eba0e03f116ad37c743fd3ffa?family=Orelo+SemiWide+DemiBold);
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* main begin ------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Brittany Signature';
+  src: url('../fonts/BrittanySignatureRegular.woff2') format('woff2'),
+  url('../fonts/BrittanySignatureRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main-section{
+  height: 100vh;
+  width: 100%;
+  background-color: #f46060;
+  /* background-color: #4397e8; */
+  color: white;
+  display: flex;
+  justify-content: center;
+  animation: bg-change 10s linear  infinite ;
+  /* animation-timing-function: steps(5, start); */
+}
+
+.tempcont{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main-title{
+  font-size: 1.55rem;
+  text-align: center;
+  width: 60%;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  margin-top: 1.2rem;
+  
+}
+
+.main-title h1{
+  font-family: 'Brittany Signature';
+  padding: 2rem;
+}
+.main-buttons{
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-buttons button{
+  width: 9rem;
+  height: 2.5rem;
+  margin: 1.3rem;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  /* animation on hover */
+  transition: all 0.5s ease;
+}
+.main-buttons button:hover{
+  background-color: white;
+  cursor: pointer;
+  scale: 1.1;
+}
+.premium{
+  background-color: #FF8C00;
+}
+.premium-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  gap: 0.5rem;
+}
+/* joinus button */
+.join-us{
+  display:inline;
+  width: 0;
+  height: 0;
+  margin: 0;
+  position: fixed;
+  right: 12rem;
+  z-index: 9999;
+}
+
+.animation-elements{
+  position: relative;
+}
+.left-heart img{
+  height: 8rem;
+  width: 8rem;
+  background-size: cover;
+  position: absolute;
+  bottom: 20rem;
+  left: -68rem;
+  position: absolute;
+  transform: rotate(10deg);
+ 
+}
+.right-heart img{
+  height: 6rem;
+  width: 6rem;
+  background-size: cover;
+  position: absolute;
+  bottom: 10rem;
+  right: -10rem;
+  position: absolute;
+  transform: rotate(-30deg);
+
+  
+}
+
+.red-book img{
+  height: 22rem;
+  width: 25rem;
+  background-size: cover;
+  position: absolute;
+  bottom: 0px;
+  right: 16rem;
+  position: absolute;
+
+}
+.bluebook img{
+  
+  height: 22rem;
+  width: 25rem;
+  background-size: cover;
+  position: absolute;
+  bottom: 0px;
+  right: 16rem;
+  position: absolute;
+  
+  
+}
+.right-flower img{
+  height: 8rem;
+  width: 8rem;
+  position: absolute;
+  bottom: 20rem;
+  right: -6rem;
+  position: absolute;
+  /* transform: rotate(-30deg); */
+ 
+}
+.left-flower img{
+  height: 4.5rem;
+  width: 4.5rem;
+  position: absolute;
+  bottom: 17rem;
+  left: -52rem;    
+}
+.right-choco img{
+  height: 9.5rem;
+  width: 9.5rem;
+  position: absolute;
+  bottom: 3rem;
+  right: 0rem;
+  position: absolute;
+  /* transform: rotate(-30deg); */
+ 
+}
+.left-cloud img{
+  height: 12rem;
+  width: 12rem;
+  position: absolute;
+  bottom: 3rem;
+  left: -62rem;    
+}
+.left-hat img{
+  height: 11rem;
+  width: 11rem;
+  position: absolute;
+  bottom: 0rem;
+  left: -58rem;  
+
+}
+.right-naruto img{
+   
+  height: 7rem;
+  width: 7rem;
+  position: absolute;
+  bottom: 3rem;
+  right: -4rem;
+  position: absolute;
+
+}
+.left-naruto img{
+  height: 8rem;
+  width: 8rem;
+  position: absolute;
+  top: 26rem;
+  left: -68rem;
+  
+
+}
+.right-totoro img{
+  height: 13rem;
+  width: 13rem;
+  position: absolute;
+  top: 21rem;
+  left: -14rem;
+  rotate: -15deg;
+  
+
+}
+.right-katana img{
+  height: 9.5rem;
+  width: 9.5rem;
+  position: absolute;
+  bottom: 12rem;
+  right: -13rem;
+  position: absolute;
+  /* transform: rotate(-30deg); */
+ 
+}
+.left-katana img{
+  height: 10rem;
+  width: 10rem;
+  position: absolute;
+  /* bottom: 3rem; */
+  top: 22rem;
+  left: -52rem;    
+}
+
+@keyframes animate-heart {
+  0%, 100% {
+      transform: translateY(100vh);
+      opacity: 0;
+  }
+  50% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+@keyframes animate-heart {
+  0%, 100%{
+      transform: translateY(0vh);
+      opacity: 1;
+  }
+  20% {
+      transform: translateY(0vh);
+      opacity: 1;
+  }
+  40% {
+      transform: translateY(100vh);
+      opacity: 1;
+  }
+  60% {
+      transform: translateY(100vh);
+      opacity: 1;
+  }
+  80% {
+      transform: translateY(0vh);
+      opacity: 1;
+  }
+
+}
+.left-heart img,
+.right-heart img,
+.left-flower img,
+.right-flower img,
+.left-cloud img,
+.right-choco img,
+.red-book img{
+  animation: animate-heart 10s  ease-in-out infinite;
+}
+.main-section {
+  overflow: hidden;
+}
+
+@keyframes animate-blue-elements {
+  0%, 100%{
+      transform: translateY(100vh);
+      opacity: 1;
+  }
+  20% {
+      transform: translateY(100vh);
+      opacity: 1;
+  }
+  40% {
+      transform: translateY(0vh);
+      opacity: 1;
+  }
+  60% {
+      transform: translateY(0vh);
+      opacity: 1;
+  }
+  80% {
+      transform: translateY(100vh);
+      opacity: 1;
+  }
+}
+
+.blue-elements .left-hat img,
+.blue-elements .left-naruto img,
+.blue-elements .right-naruto img,
+.blue-elements .left-katana img,
+.blue-elements .right-katana img,
+.blue-elements .right-totoro img,
+.blue-elements .bluebook  img{
+  animation: animate-blue-elements 10s ease-in-out infinite;
+}
+
+
+@keyframes bg-change {
+  0% {
+      background-color: #f46060;
+  }
+  20% {
+      background-color: #f46060;
+  }
+  25% {
+      background-color: #60aaf4;
+  }
+  45% {
+      background-color: #60aaf4;
+  }
+  50% {
+      background-color: #60aaf4;
+  }
+  70% {
+      background-color: #60aaf4;
+  }
+  75% {
+      background-color: #f46060;
+  }
+  100% {
+      background-color: #f46060;
+  }
+} 
+/* main section responsiveness */
+
+@media (max-width: 400px){
+  .main-title{
+    width: 85%;
+    font-size: 14px;
+  }
+  .main-buttons button{
+    width: 7rem;
+    height: 2rem;
+    margin: 1rem;
+  }
+  /* moving all animations to the centre */
+  .join-us{
+    display: block;
+    height: 0;
+    margin: 0;
+    position: absolute;
+    top: 250px;
+    left:8rem;
+    text-align: center;
+    z-index: 9999;
+  }
+
+  .left-heart img{
+    display: none;
+   
+  }
+  .right-heart img{
+    display: none;
+  }
+  
+  .red-book img{
+    height: 15rem;
+    width: 20rem;
+    background-size: cover;
+    position: absolute;
+    bottom: 0px;
+    right: 1rem;
+  }
+  .bluebook img{
+    height: 15rem;
+    width: 20rem;
+    background-size: cover;
+    position: absolute;
+    bottom: 0px;
+    right: 1rem;
+  }
+  .right-flower img{
+    height: 4rem;
+    width: 4rem;
+    bottom: 20rem;
+    right: 3rem;
+    /* transform: rotate(-30deg); */
+   
+  }
+  .left-flower img{
+    display: none;  
+  }
+  .right-choco img{
+    height: 7rem;
+    width: 7rem;
+    bottom: 15rem;
+    right: 12rem;
+    /* transform: rotate(-30deg); */
+   
+  }
+  .left-cloud img{
+    display: none;   
+  }
+  .left-hat img{
+    display: none; 
+  
+  }
+  .right-naruto img{
+    height: 7rem;
+    width: 7rem;
+    right: 2rem;
+    bottom: 17rem;
+  }
+  .left-naruto img{
+    display: none;
+  }
+  .right-totoro img{
+    height: 9rem;
+    width: 9rem;
+    top: 16rem;
+    left: -20rem;
+    rotate: 0deg;
+  }
+  .right-katana img{
+    display: none;
+   
+  }
+  .left-katana img{
+    display: none;  
+  }
+}
+
+
+
+/* main end  -------------------------------------------------------------------------*/
+  .carl{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Roboto', serif;
+    /*background: linear-gradient(135deg, #B79891, #94716B);*/
+    background: linear-gradient(135deg, #f46060, #f24848);
+  }
+  
+  .ontop{
+    font-family: "Orelo SemiWide DemiBold";
+    color: #fff;
+    left: 10vw;
+    z-index: 1;
+    width: 50%;
+    text-justify: distribute-all-lines;
+    top: 35rem;
+    position: relative;
+  }
+  @media (max-width:1000px) {
+    .ontop{
+      left: 5vw;
+      bottom: 2%;
+    }
+  }
+
+  .carousel {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .carousel-item {
+    --items: 10;
+    --width: clamp(150px, 30vw,  300px);
+    --height: clamp(200px, 40vw,  400px);
+    --x: calc(var(--active) * 800%);
+    --y: calc(var(--active) * 200%);
+    --rot: calc(var(--active) * 120deg);
+    --opacity: calc(var(--zIndex) / var(--items) * 3 - 2);
+    overflow: hidden;
+    position: absolute;
+    z-index: var(--zIndex);
+    width: var(--width);
+    height: var(--height);
+    margin: calc(var(--height) * -0.5) 0 0 calc(var(--width) * -0.5);
+    border-radius: 10px;
+    top: 50%;
+    left: 75%;
+    user-select: none;
+    transform-origin: 0% 100%;
+    box-shadow: 0 10px 50px 10px rgba(0, 0, 0, .5);
+    background: black;
+    pointer-events: all;
+    transform:  translate(var(--x), var(--y)) rotate(var(--rot)) ;
+    transition: transform .8s cubic-bezier(0, 0.02, 0, 1);
+  
+    .carousel-box {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+      opacity: var(--opacity);
+      font-family: "Orelo SemiWide DemiBold", serif;
+    }
+  
+    .book-title {
+      position: absolute;
+      z-index: 1;
+      color: #fff;
+      bottom: 20px;
+      left: 20px;
+      transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+      font-size: clamp(20px, 3vw, 30px);
+      text-shadow: 0 4px 4px rgba(0, 0, 0, .1);
+    }
+  
+    .num {
+      position: absolute;
+      z-index: 1;
+      color: #fff;
+      top: 10px;
+      left: 20px;
+      transition: opacity .8s cubic-bezier(0, 0.02, 0, 1);
+      font-size: clamp(20px, 10vw, 80px);
+    }
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .layout {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+    .box {
+      position: absolute;
+      bottom: 0;
+      left: 30px;
+      color: #fff;
+      transform-origin: 0% 10%;
+      transform: rotate(-90deg);
+      font-size: 9px;
+      line-height: 1.4;
+      text-transform: uppercase;
+      opacity: .4;
+    }
+
+  @media (max-width:400px){
+    .ontop{
+      /* top: 58rem; */
+      width: 75%;
+      position: relative;
+      bottom: 50rem;
+    }
+    .carousel-item{
+      top: 30%;
+    }
+  }
+
+/* ISHIKA PART iske neeche saare sahi hai*/
+/* :) */
+
+
+.genre-head h1{
+  /* padding: 1rem; */
+  padding-top: 1.5rem;
+}
+.section-genres{
+  width: 100%;
+  height: 100vh;
+  background-color: #f48560;
+}
+.genre-head{
+  color: white;
+  font-size: 2rem;
+  font-family: 'Brittany Signature';
+  margin-left: 7.7%;
+  padding-top: 2rem;
+  /* padding-top: 2%; */
+}
+
+.hero-element{
+  height: 120px;
+  position:relative;
+  top: 110px;
+
+}
+.sample-slider{
+
+  width:300px;
+  height: 430px;
+  border-radius: 10px;
+}
+.swiper-hero{
+  position: absolute;
+  top:-30px;
+  left: 10%;
+}
+.slide1{
+  background-image: url("./Swiper/spanishlovedeception.jpg");
+}
+.slide2{
+  background-image: url("./Swiper/conjuring.jpeg");
+}
+.slide3{
+  background-image: url("./Swiper/leavesofgrass.jpg");
+}
+.slide4{
+  background-image: url("./Swiper/inferno.jpg");
+}
+.swiper-slide{
+  background-size: cover;
+  border-radius: 10px;
+
+
+}
+.swiper-grad h1{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.634));
+  border-radius: 10px;
+}
+.book-grad{
+  height: 100%;
+  /* background-image: linear-gradient(to bottom , rgba(0, 0, 0, 0.428),  rgba(0, 0, 0, 0.733)); */
+  border-radius: 10px;
+  border: 2px solid  #fcf4f1;
+
+}
+.swiper-grad{
+  height: 100%;
+  border-radius: 10px;
+  /* background-image: linear-gradient(to bottom , rgba(0, 0, 0, 0.582), black); */
+  border: 2px solid  #fcf4f1;
+  font-family: 'Orelo SemiWide DemiBold';
+}
+.swiper-button-prev{
+  color: #ffbfa5;
+}
+.book{
+  background-size: cover;
+}
+.book1{
+  background-image: url(./images/genres/romance/itendswithus.jpg);
+  height: 240px;
+  width: 170px;
+  position: absolute;
+  left: 38%;
+  background-size: cover;
+  top: 82%;
+  border-radius: 10px;
+
+}
+.book2{
+  background-image: url(./images/genres/romance/faultinourstars.jpg);
+  height: 150px;
+  width: 110px;
+  position: absolute;
+  left: 51%;
+  background-size: cover;
+  top: 60%;
+  border-radius: 10px;
+}
+.book3{
+  background-image: url(./images/genres/romance/hardwired.jpg);
+  height: 150px;
+  width: 110px;
+  position: absolute;
+  left: 51%;
+  background-size: cover;
+  top: 200%;
+  border-radius: 10px;
+}
+.book4{
+  background-image: url(./images/genres/romance/fiftyshades.jpg);
+  height: 230px;
+  width: 160px;
+  position: absolute;
+  left: 60%;
+  background-size: cover;
+  top: 110%;
+  border-radius: 10px;
+}
+.book5{
+  background-image: url(./images/genres/romance/twilight.jpg);
+  height: 330px;
+  width: 200px;
+  position: absolute;
+  left: 72%;
+  background-size: cover;
+  top: 53%;
+  border-radius: 10px;
+}
+.genre-quote{
+  position: absolute;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-style: italic;
+  top: -20%;
+  width: 48%;
+  left: 38%;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+@keyframes changeBooks1 {
+  0%, 100% { background-image: url(./images/genres/romance/itendswithus.jpg); }
+  25% { background-image: url(./images/genres/horror/psycho.jpg); }
+  50% { background-image: url(./images/genres/poetry/greencardgirl.jpg); }
+  75% { background-image: url(./images/genres/thriller/oneofthegoodguys.jpg); }
+}
+
+@keyframes changeBooks2 {
+  0%, 100% { background-image: url(./images/genres/romance/faultinourstars.jpg); }
+  25% { background-image: url(./images/genres/horror/theinvogations.jpg); }
+  50% { background-image: url(./images/genres/poetry/whatyourefusetoremember.jpg); }
+  75% { background-image: url(./images/genres/thriller/whereyouend.jpg); }
+}
+
+@keyframes changeBooks3 {
+  0%, 100% { background-image: url(./images/genres/romance/hardwired.jpg); }
+  25% { background-image: url(./images/genres/horror/whereyouend.jpg); }
+  50% { background-image: url(./images/genres/poetry/lifefucksmeeveryday.jpg); }
+  75% { background-image: url(./images/genres/thriller/womanontheledge.jpg); }
+}
+
+@keyframes changeBooks4 {
+  0%, 100% { background-image: url(./images/genres/romance/fiftyshades.jpg); }
+  25% { background-image: url(./images/genres/horror/aplaceforvanishing.jpg); }
+  50% { background-image: url(./images/genres/poetry/historyofhalfbirds.jpg); }
+  75% { background-image: url(./images/genres/thriller/searchparty.jpg); }
+}
+
+@keyframes changeBooks5 {
+  0%, 100% { background-image: url(./images/genres/romance/twilight.jpg); }
+  25% { background-image: url(./images/genres/horror/midnightofbeckonstreet.jpg); }
+  50% { background-image: url(./images/genres/poetry/resurrections.jpg); }
+  75% { background-image: url(./images/genres/thriller/northwoods.jpg); }
+}
+
+.book1 {
+  animation: changeBooks1 20s infinite;
+}
+
+.book2 {
+  animation: changeBooks2 20s infinite;
+}
+
+.book3 {
+  animation: changeBooks3 20s infinite;
+}
+
+.book4 {
+  animation: changeBooks4 20s infinite;
+}
+
+.book5 {
+  animation: changeBooks5 20s infinite;
+}
+/* ------------------------------------------------------------------------------------------- */
+@media (max-width: 1000px){
+  .book{
+    display: none;
+  }
+  .genre-head h1{
+    font-size: 32px;
+    padding-top: 0.5rem;
+  }
+
+  .hero-element{
+    top: 50px;
+  
+  }
+  .sample-slider{
+    width:275px;
+    height: 400px;
+    border-radius: 10px;
+  }
+  .swiper-hero{
+    text-align: center;
+    left: 4rem;
+    top: 2rem;
+  }
+  .genre-quote{
+    left: 4rem;
+    top: -2rem;
+    font-size: 12px;
+    width: 275px;
+  }
+}
+
+/*END*/
+
+
+/*Section for how it works CSS iske neeche saare sahi hai*/
+body {
+  margin: 0;
+  padding: 0;
+  background: #60aaf4;
+}
+
+.cont-paper-text{
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  color:black;
+  justify-content: center;
+  align-items: center;
+}
+.center-paper-text{
+  text-align: center;
+  font-family: 'Indie Flower';
+  color: white;
+}
+
+.cont-papers{
+  display: flex;
+  justify-content: center;
+  height: 60vh;
+  width: 100%;
+  gap: 20px;
+}
+
+.paper {
+  position: relative;
+  height: 300px;
+  width: 450px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0px 0px 5px 0px #888;
+}
+
+.paper::before {
+  content: '';
+  position: absolute;
+  left: 45px;
+  height: 100%;
+  width: 2px;
+  background: rgba(255,0,0,0.4);
+}
+.lines {
+  margin-top: 40px;
+  height: calc(100% - 40px);
+  width: 100%;
+  background-image: repeating-linear-gradient(white 0px, white 24px, steelblue 25px);
+}
+.paper-text {
+  position: absolute;
+  top: 65px;
+  left: 55px;
+  bottom: 10px;
+  right: 10px;
+  line-height: 25px;
+  font-family: 'Indie Flower';
+  overflow: hidden;
+  outline: none;
+}
+.holes {
+  position: absolute;
+  left: 10px;
+  height: 25px;
+  width: 25px;
+  background: lightgoldenrodyellow;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 2px 0px #888;
+}
+.hole-top {
+  top: 10%;
+}
+.hole-middle {
+  top: 50%;
+}
+.hole-bottom {
+  bottom: 10%;
+}
+
+@media (max-width:1000px){
+  .cont-paper-text{
+    height: 20vh;
+  }
+  .cont-papers{
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  .paper{
+    width: 80vw;
+    height: 200px;
+    width: 350px;
+  }
+}
+
+.section-inmiddleHowitworks{
+  overflow-x: hidden;
+}
+
+.section-4{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  background-color: #f1eada;
+}
+
+.section-4 iframe{
+  width: 100%;
+  height: 100vh;
+}
+
+

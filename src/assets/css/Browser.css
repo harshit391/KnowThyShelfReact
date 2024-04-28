@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    background: black;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+
+}
+
+header {
+    background-color: #f9f8f4;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: 35px;  */
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.browser-bg{
+    background-color: rgb(19, 18, 18);
+}
+ul {
+    display: flex;
+}
+
+ul li {
+    list-style: none;
+    margin-right: 30px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 13px;
+    transition-property: color;
+    transition-duration: .2s;
+}
+
+ul li a:hover {
+    color: gray;
+}
+
+.logo img {
+    width: 45px;
+    padding-top: 5px;
+}
+
+.profile {
+    width: 70px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.profile i {
+    color: black;
+    cursor: pointer;
+
+}
+
+.profile i:hover {
+    color: black;
+}
+
+.profile img {
+    width: 40px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.search-bar {
+    width: 50vw;
+    margin: auto;
+    visibility: hidden;
+}
+
+.input-field {
+    background: black;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.input-field input {
+    width: 93%;
+    height: 90%;
+    outline: none;
+    background: transparent;
+    border: none;
+}
+
+.input-field label {
+    cursor: pointer;
+}
+
+.main-home {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-around; */
+
+
+}
+
+.read-left,
+.read-right {
+    /* display: inline; */
+    padding: .5rem;
+}
+
+.read-right p {
+    font-size: .85rem;
+}
+
+@keyframes loadX {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: var(--percentage);
+    }
+}
+
+.search-content form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0rem;
+}
+
+.search-content input {
+    width: 50rem;
+    height: 3rem;
+    border: none;
+    margin-left: 2.5rem;
+
+}
+
+.search-content button {
+
+    width: 10rem;
+    height: 3rem;
+    margin: 0rem 3rem;
+
+}
+
+.gen {
+    width: 17rem;
+    height: 12rem;
+    box-shadow: 0 0 10px rgba(239, 237, 237, 0.5);
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.4rem;
+    margin: 0rem 3rem 3rem 3rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.808), rgba(0, 0, 0, 0.75));
+}
+
+.genre-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 5rem 5rem 5rem;
+}
+
+.pinkpastel {
+    background-color: #f46060;
+
+}
+
+.lightbeigepastel {
+    background-color: #84aeca;
+
+}
+
+.lightgreenpastel {
+    background-color: #e2f0cb;
+}
+
+.darkgreenpastel {
+    background-color: #bcead6;
+
+}
+
+.purplepastel {
+    background-color: #cdb4db;
+
+}
+/* .browse-section{
+    background-color: rgba(0, 0, 0, 0.675);
+} */
+.bookItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 5rem 2rem 5rem;
+    padding: 10px;
+    border: 1px solid white;
+    background-color: rgb(26, 24, 24);
+    box-shadow: 0px 0px 0px 10px rgb(38, 38, 38);
+}
+
+.bookList {
+    text-align: center;
+    color: white;
+    width: 67%;
+    margin-left: 9%;
+    flex-direction: column;
+
+}
+
+.left-sec img {
+    height: 15rem;
+    margin: 10px;
+    margin-right: 3rem;
+}
+
+.right-sec {
+    text-align: left;
+}
+
+.right-sec a {
+    color: rgb(251, 122, 251);
+}

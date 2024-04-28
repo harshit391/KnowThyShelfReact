@@ -1,0 +1,90 @@
+.calendar {
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 23rem;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #7367f0;
+    color: #fff;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .header:hover {
+    background-color: #5e50cc;
+  }
+  
+  .header button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-size: 14px;
+  }
+  
+  .header button:hover {
+    color: #e0e0e0;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 10px;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  th {
+    background-color: #f7f7f7;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .empty-cell {
+    background-color: #f7f7f7;
+    color: #ccc;
+  }
+  
+  .day-cell {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+  }
+  
+  .day-cell:hover {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .day-cell.selected {
+    background-color: #7367f0;
+    color: #fff;
+  }
+  .day-cell.current-day {
+    background-color: #c8e6c9; /* Green color for the current day */
+    color: #333;
+  }
+  
+  .day-cell.current-day:hover {
+    background-color: #a5d6a7; /* Darker green color on hover for the current day */
+    color: #333;
+  }
+    

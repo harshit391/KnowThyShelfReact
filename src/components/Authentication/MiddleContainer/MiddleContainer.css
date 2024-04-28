@@ -1,0 +1,539 @@
+/* MiddleContainer.css */
+.containerProfile {
+    float: left;
+    width: 300px;
+}
+
+.block {
+    margin-bottom: 25px;
+    background: white;
+    border-radius: 5px;
+}
+.middle-container {
+    margin: 10px 25px;
+  }
+  
+  .profile_main {
+    height: 51vh;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .imageMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .imageMain img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    border: 5px solid white;
+  }
+  
+  .imageName {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .readBooks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .readBooks div {
+    background-color: #4fc4f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 80%;
+  }
+  
+  .continue {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40vw;
+    height: 70vh;
+    background-color: white;
+    border-radius: 4px;
+  }
+  
+  .continue-heading {
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .continue div h2 {
+    font-size: 25px;
+  }
+  
+  .continue-container {
+    display: flex;
+    height: 50vh;
+    border-radius: 4px;
+    padding: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  .continue:nth-of-type(2) .continue-container {
+    height: 40vh;
+    overflow-y: hidden;
+  }
+  
+  .continue:nth-of-type(2) .continue-container .booksContinued {
+    display: inline;
+  }
+  
+  .continue:nth-of-type(2) .continue-container .booksContinued img:nth-of-type(2) {
+    z-index: 1;
+    position: relative;
+    bottom: 246.5px;
+  }
+  
+  .continue-container::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  .booksContinued {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    margin-bottom: -50px;
+  }
+  
+  .booksContinued img {
+    width: 165px;
+    padding: 7px;
+    height: 240px;
+    border-radius: 4px;
+  }
+  
+  .booksContinued h4 {
+    margin-top: 10px;
+    color: grey;
+  }
+  
+  /* Progress Bar */
+  .progress {
+    background: gainsboro;
+    border-radius: 25px;
+    align-items: center;
+    height: 10px;
+    margin-top: 55px;
+    margin-bottom: 60px;
+    width: 150px;
+  }
+  
+  .progress-value {
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.51);
+    height: 10px;
+    width:0
+  }
+  .pX {
+    animation: loadX 2s normal forwards;
+}
+
+@keyframes loadX {
+    0% { width: 0; }
+    100% { width: var(--percentage); }
+}
+
+/* Progress Bar Ends Here */
+
+.calendar-day {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40%;
+    background: #3468af;
+}
+
+.calendar-day .titular {
+    margin-top: -19px;
+    background: #1a4e95;
+}
+
+.calendar-day  {
+  
+    background-color: yellow;
+}
+
+.calendar-day .the-day {
+    margin: 0;
+    text-align: center;
+    font-size: 146px;
+}
+
+.add-event.button {
+    background: #4fc4f6;
+}
+
+.add-event.button:hover {
+    background: #35aadc;
+}
+
+.calendar-month {
+    height: 380px;
+    width: 50%;
+}
+
+.calendar-month .titular {
+    background: #3468af;
+}
+
+.calendar {
+    margin: 22px 15px;
+    text-align: center;
+}
+
+.calendar a {
+    font-size: 17px;
+}
+
+.calendar td,
+.calendar th {
+    width: 40px;
+    height: 38px;
+}
+
+.calendar .days-week {
+    color: #4fc4f6;
+}
+
+.calendar .today {
+    display: block;
+    width: 34px;
+    line-height: 34px;
+    background: #e64c65;
+    border-radius: 100%;
+}
+
+
+.lastContainer{
+    display: flex;
+    margin-top: 23px;
+    width: 40vw;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.media{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 383px;
+    width: 100%;
+}
+
+.mediahead{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;   
+}
+#media-display {
+    padding: 20px;
+   display: flex;
+    justify-content: center;
+}
+
+#media-display img {
+    height: 270px;
+    width: 100%;
+}
+
+/* Media query for mobile phone */
+
+@media (max-width: 768px){
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    
+    .main-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    header{
+        height: 25vh;
+        gap: 20px;
+        padding: 20px;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .menu-box{
+        height: 52vh;
+    }
+
+    .media{
+        margin-top: 50px;
+    }
+
+    .profile{
+        margin-top: 25px;
+        height: 70vh;
+        width: 100%;
+    }
+    
+    .readBooks{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .readBooks div{
+        text-align: center;
+        font-size: 80%;
+        width: 80%;
+    }
+    
+    .continue{
+        margin-top: 50px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .continue-container{
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+    .lastContainer{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .calendar-day{
+        width: 100%;
+    }
+
+    .calendar-month{
+        margin-top: 25px;
+        width: 100%;
+    }
+}
+.calendar-day {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+    height: 383px;
+    background: #3468af;
+}
+
+.calendar-day .titular {
+    margin-top: -19px;
+    background: #1a4e95;
+}
+
+.calendar-day  {
+    background: #16417E;
+}
+
+.calendar-day .the-day {
+    margin: 0;
+    text-align: center;
+    font-size: 146px;
+}
+
+.add-event.button {
+    background: #4fc4f6;
+}
+
+.add-event.button:hover {
+    background: #35aadc;
+}
+
+.calendar-month {
+    height: 380px;
+    width: 50%;
+}
+
+.calendar-month .titular {
+    background: #3468af;
+}
+
+.calendar {
+    margin: 22px 15px;
+    text-align: center;
+}
+
+.calendar a {
+    font-size: 17px;
+}
+
+.calendar td,
+.calendar th {
+    width: 40px;
+    height: 38px;
+}
+
+.calendar .days-week {
+    color: #4fc4f6;
+}
+
+.calendar .today {
+    display: block;
+    width: 34px;
+    line-height: 34px;
+    background: #e64c65;
+    border-radius: 100%;
+}
+
+
+.lastContainer{
+    display: flex;
+    margin-top: 23px;
+    width: 40vw;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.media{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 383px;
+    width: 100%;
+}
+
+.mediahead{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    font-family: 'Ubuntu', sans-serif;
+    color: black;   
+}
+#media-display {
+    padding: 20px;
+   display: flex;
+    justify-content: center;
+}
+
+#media-display img {
+    height: 270px;
+    width: 100%;
+}
+
+/* Media query for mobile phone */
+
+@media (max-width: 768px){
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    
+    .main-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    header{
+        height: 25vh;
+        gap: 20px;
+        padding: 20px;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .menu-box{
+        height: 52vh;
+    }
+
+    .media{
+        margin-top: 50px;
+    }
+
+    .profile{
+        margin-top: 25px;
+        height: 70vh;
+        width: 100%;
+    }
+    
+    .readBooks{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .readBooks div{
+        text-align: center;
+        font-size: 80%;
+        width: 80%;
+    }
+    
+    .continue{
+        margin-top: 50px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .continue-container{
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+    .lastContainer{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .calendar-day{
+        width: 100%;
+    }
+
+    .calendar-month{
+        margin-top: 25px;
+        width: 100%;
+    }
+}
+
+
+
+
+
