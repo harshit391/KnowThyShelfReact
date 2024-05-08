@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Page from './Authentication/Page';
-import Header from './Authentication/Header/Header';
-import LeftContainer from './Authentication/LeftContainer/LeftContainer';
-import MiddleContainer from './Authentication/MiddleContainer/MiddleContainer';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'; // Import from 'firebase/auth'
 import { app } from "../assets/scripts/firebase";
 import Profile from './Authentication/Profile';

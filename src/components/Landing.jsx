@@ -9,7 +9,7 @@ import Magazine from './Magazine'
 const Landing = () => {
   return (
     <div>
-      <Main/>
+      <Main showOrNot={true}/>
       <Carl/>
       <ChooseYourPick />
       <HowKnowThyShelfWorks/>

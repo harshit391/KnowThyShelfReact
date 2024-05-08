@@ -3,7 +3,7 @@ export function PricingSection() {
   return (
     <>
     <div className="container-fluid py-5" style={{background: "linear-gradient(135deg, #f46060, #f24848)"}}>
-    <div className="container p-5 ">
+    <div className="container1 p-5 ">
       <div className="row">
         <div className="col-lg-4 col-md-12 mb-4">
           <div className="card h-100 shadow-lg">

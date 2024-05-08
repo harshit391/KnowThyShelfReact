@@ -4,11 +4,11 @@ export function SignUp() {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh',
+    height: '120vh',
     width: '100%',
-    backgroundColor: '#f48560'
+    backgroundColor: '#f48560',
   }}>
-        <div id="main-wrapper" className="container py-5" style={{
+        <div id="main-wrapper" className="container py-7" style={{
       fontFamily: "Be Vietnam Pro', sans-serif"
     }}>
           <div className="row justify-content-center">

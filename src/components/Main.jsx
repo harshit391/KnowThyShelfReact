@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Book from './WebsiteElements/Book.png';
 import Heart from './WebsiteElements/Heart.png';
 import Flower from './WebsiteElements/Flower.png';
@@ -9,8 +9,15 @@ import Naruto from './WebsiteElements/Naruto.png';
 import Katana from './WebsiteElements/Katana.png';
 import Totoro from './WebsiteElements/Totoro.png';
 import BlueBook from './WebsiteElements/BlueBook.png';
+import { Link } from "react-router-dom";
 
-const Main = () => {
+const Main = ({showOrNot}) => {
+
+    useEffect(() => {
+      if (!showOrNot) {
+        document.querySelector('.prm').style.display = 'none';
+      }
+    })
     return (
         <div className="main-section">
       <div className="join-us main-buttons">
@@ -21,9 +28,10 @@ const Main = () => {
         <h3>Explore Worlds. Pen Your Own.</h3>
         <p>Begin your literary journey on our platform – read, write, and connect with fellow enthusiasts!</p>
         <div className="main-buttons">
-          <a href="./authentication"><button>Start Reading</button></a>
-          <a href="./authentication"><button>Start Writing</button></a>
-          <a href="./premium" style={{ textDecoration: 'none' }}>
+          <Link to="/read"><button>Start Reading</button></Link>
+          <Link to="/write"><button>Start Writing</button></Link>
+          <span className="prm">
+          <Link to="/premium" style={{ textDecoration: 'none' }}>
             <button className="premium" type="button">
               <div className="premium-div">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="#5c10ff" stroke="#5c10ff" strokeWidth="2" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round" className="zap-icon">
@@ -32,7 +40,8 @@ const Main = () => {
                 Try Premium
               </div>
             </button>
-          </a>
+          </Link>
+          </span>
         </div>
       </div>
       <div className="animation-elements">

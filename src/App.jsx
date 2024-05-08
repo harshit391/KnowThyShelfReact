@@ -23,7 +23,7 @@ const KnowThyShelf = () => {
         <Route path='/authentication' element={<Authentication/>}></Route>
         <Route path='/profile' element={<Profile/>}></Route>
         {/* Add more routes here if needed */}
-        {/* <Route path="/premium" element={<PremiumPage/>}/> */}
+        <Route path="/premium" element={<PremiumPage/>}/>
       </Routes>
     </>
   );
