@@ -1,5 +1,5 @@
 import React from 'react';
-// import './App.css';
+import './App.css';
 import Landing from './components/Landing';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Authentication from './components/Authentication';
@@ -7,7 +7,7 @@ import Profile from './components/Authentication/Profile';
 import Browser from './components/Browser';
 import LibraryComponent from './components/Library';
 import Dashboard from './components/Dashboard/Dashboard';
-// import PremiumPage from './components/Premium/PremiumSubscription';
+import PremiumPage from './components/Premium/PremiumSubscription';
 
 
 const KnowThyShelf = () => {

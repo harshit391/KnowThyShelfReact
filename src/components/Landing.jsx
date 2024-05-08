@@ -3,18 +3,17 @@ import Carl from './carl'
 import Main from './Main'
 import ChooseYourPick from './ChooseYourPick'
 import HowKnowThyShelfWorks from './HowKnowThyShelfWorks'
-import Test from './Testimonials'
 import '../App.css'
+import Magazine from './Magazine'
 
 const Landing = () => {
   return (
     <div>
-        <Main/>
+      <Main/>
       <Carl/>
       <ChooseYourPick />
       <HowKnowThyShelfWorks/>
-      <Test/>
-      
+      <Magazine />
     </div>
   )
 }

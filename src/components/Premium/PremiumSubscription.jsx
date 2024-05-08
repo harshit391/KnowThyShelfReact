@@ -6,21 +6,19 @@ import { SignUp } from './SignUp';
 import { PricingSection } from './PricingSection';
 import { ModalTour } from './ModalTour';
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../assets/css/Premium.css'
+// import '../../assets/css/Premium.css'
 
 
 function PremiumPage() {
   return (
-    <>
+    <div>
       <JoinButton />
       <MainTitle />
-      <AnimationElements />
       <ModalTour />
       <PricingSection />
       <SignUp />
       <FAQSection />
-    </>
+    </div>
   );
 }
 
