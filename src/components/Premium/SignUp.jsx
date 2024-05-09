@@ -4,12 +4,12 @@ export function SignUp() {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '120vh',
+    height: '100vh',
     width: '100%',
     backgroundColor: '#f48560'
   }}>
         <div id="main-wrapper" className="container py-5" style={{
-      fontFamily: "Be Vietnam Pro', sans-serif"
+      fontFamily: "'Be Vietnam Pro', sans-serif;"
     }}>
           <div className="row justify-content-center">
             <div className="col-xl-10">

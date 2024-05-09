@@ -9,7 +9,7 @@ import Test from './Testimonials'
 const Landing = () => {
   return (
     <div>
-        <Main toshow={true}/>
+        <Main/>
       <Carl/>
       <ChooseYourPick />
       <HowKnowThyShelfWorks/>

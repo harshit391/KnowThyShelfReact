@@ -1,3 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url(https://db.onlinewebfonts.com/c/0da4520eba0e03f116ad37c743fd3ffa?family=Orelo+SemiWide+DemiBold);
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* main begin ------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'Brittany Signature';
+    src: url('../fonts/BrittanySignatureRegular.woff2') format('woff2'),
+        url('../fonts/BrittanySignatureRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-section {
+    height: 100vh;
+    width: 100%;
+    background-color: #f46060;
+    /* background-color: #4397e8; */
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.main-title {
+    font-size: 1.55rem !important;
+    text-align: center;
+    width: 70%;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    margin-top: 1.2rem;
+
+}
+
+.main-title h1 {
+    font-family: 'Brittany Signature';
+    padding: 2rem;
+}
+
+.main-buttons {
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+
+.main-buttons button {
+    width: 9rem;
+    height: 2.5rem;
+    margin: 1.3rem;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    /* animation on hover */
+    transition: all 0.5s ease;
+}
+
+.main-buttons button:hover {
+    background-color: white;
+    cursor: pointer;
+    scale: 1.1;
+}
+
+/* joinus button */
+.join-us {
+    display: inline;
+    width: 0;
+    height: 0;
+    margin: 0;
+    position: fixed;
+    right: 12rem;
+    z-index: 9999;
+}
+
+.animation-elements {
+    position: relative;
+}
+
+.book img {
+    height: 35vh;
+    width: 28rem;
+    background-size: cover;
+    bottom: 0vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* main section responsiveness */
+
+@media (max-width: 400px) {
+    .main-title {
+        width: 85%;
+        font-size: 14px;
+    }
+
+    .main-title p {
+        display: none;
+    }
+
+    .main-buttons button {
+        width: 7rem;
+        height: 2rem;
+        display: none;
+    }
+
+    /* moving all animations to the centre */
+    .join-us {
+        top: 250px;
+        text-align: center;
+        z-index: 9999;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .left-heart img {
+        display: none;
+
+    }
+
+    .right-heart img {
+        display: none;
+    }
+
+    .book img {
+        height: 15rem;
+        width: 20rem;
+        background-size: cover;
+        position: absolute;
+        bottom: 0px;
+        right: 1rem;
+    }
+
+    .bluebook img {
+        height: 15rem;
+        width: 20rem;
+        background-size: cover;
+        position: absolute;
+        bottom: 0px;
+        right: 1rem;
+    }
+
+    .right-flower img {
+        height: 4rem;
+        width: 4rem;
+        bottom: 20rem;
+        right: 3rem;
+        /* transform: rotate(-30deg); */
+
+    }
+
+    .left-flower img {
+        display: none;
+    }
+
+    .right-choco img {
+        height: 7rem;
+        width: 7rem;
+        bottom: 15rem;
+        right: 12rem;
+        /* transform: rotate(-30deg); */
+
+    }
+
+    .left-cloud img {
+        display: none;
+    }
+
+    .left-hat img {
+        display: none;
+
+    }
+
+    .right-naruto img {
+        height: 7rem;
+        width: 7rem;
+        right: 2rem;
+        bottom: 17rem;
+    }
+
+    .left-naruto img {
+        display: none;
+    }
+
+    .right-totoro img {
+        height: 9rem;
+        width: 9rem;
+        top: 16rem;
+        left: -20rem;
+        rotate: 0deg;
+    }
+
+    .right-katana img {
+        display: none;
+
+    }
+
+    .left-katana img {
+        display: none;
+    }
+}
+
+* {
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+
 .card {
     border: none;
     padding: 10px 50px;

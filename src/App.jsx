@@ -7,7 +7,7 @@ import Profile from './components/Authentication/Profile';
 import Browser from './components/Browser';
 import LibraryComponent from './components/Library';
 import Dashboard from './components/Dashboard/Dashboard';
-import PremiumPage from './components/Premium/PremiumSubscription';
+// import PremiumPage from './components/Premium/PremiumSubscription';
 
 
 const KnowThyShelf = () => {
@@ -19,9 +19,11 @@ const KnowThyShelf = () => {
         <Route path="/library" element={<LibraryComponent />} />
         <Route path="/browser" element={<Browser />} />
         <Route path='/dashboard' element={<Dashboard/>}></Route>
+        {/* <Route path='/premium' element={<PremiumPage/>}></Route> */}
         <Route path='/authentication' element={<Authentication/>}></Route>
         <Route path='/profile' element={<Profile/>}></Route>
-        <Route path="/premium" element={<PremiumPage/>}/>
+        {/* Add more routes here if needed */}
+        {/* <Route path="/premium" element={<PremiumPage/>}/> */}
       </Routes>
     </>
   );

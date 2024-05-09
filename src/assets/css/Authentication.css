@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-
 :root {
     --primary-color: #4EA685;
     --secondary-color: #57B894;
@@ -14,8 +12,10 @@
     --insta-color: #E1306C;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
 * {
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -23,7 +23,7 @@
 
 
 
-.container123 {
+.container {
     position: relative;
     min-height: 100vh;
     overflow: hidden;
@@ -118,8 +118,8 @@
     cursor: pointer;
 }
 
-.container123.sign-in .form.sign-in,
-.container123.sign-up .form.sign-up {
+.container.sign-in .form.sign-in,
+.container.sign-up .form.sign-up {
     transform: scale(1);
 }
 
@@ -170,18 +170,18 @@
     transform: translateX(250%);
 }
 
-.container123.sign-in .text.sign-in h2,
-.container123.sign-in .text.sign-in p,
-.container123.sign-in .img.sign-in img,
-.container123.sign-up .text.sign-up h2,
-.container123.sign-up .text.sign-up p,
-.container123.sign-up .img.sign-up img {
+.container.sign-in .text.sign-in h2,
+.container.sign-in .text.sign-in p,
+.container.sign-in .img.sign-in img,
+.container.sign-up .text.sign-up h2,
+.container.sign-up .text.sign-up p,
+.container.sign-up .img.sign-up img {
     transform: translateX(0);
 }
 
 /* BACKGROUND */
 
-.container123::before {
+.container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -197,12 +197,12 @@
     border-top-left-radius: max(50vw, 50vh);
 }
 
-.container123.sign-in::before {
+.container.sign-in::before {
     transform: translate(1%, 0);
     right: 50%;
 }
 
-.container123.sign-up::before {
+.container.sign-up::before {
     transform: translate(100%, 0);
     right: 50%;
 }
@@ -213,9 +213,9 @@
 
 @media only screen and (max-width: 425px) {
 
-    .container123::before,
-    .container123.sign-in::before,
-    .container123.sign-up::before {
+    .container::before,
+    .container.sign-in::before,
+    .container.sign-up::before {
         height: 100vh;
         border-bottom-right-radius: 0;
         border-top-left-radius: 0;
@@ -224,12 +224,12 @@
         right: 0;
     }
 
-    /* .container123.sign-in .col.sign-up {
+    /* .container.sign-in .col.sign-up {
       transform: translateY(100%);
   } */
 
-    .container123.sign-in .col.sign-in,
-    .container123.sign-up .col.sign-up {
+    .container.sign-in .col.sign-in,
+    .container.sign-up .col.sign-up {
         transform: translateY(0);
     }
 

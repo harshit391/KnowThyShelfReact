@@ -6,9 +6,9 @@
 /* main begin ------------------------------------------------------------------- */
 
 @font-face {
-  font-family: 'Brittany Signature' !important;
-  src: url('/fonts/BrittanySignatureRegular.woff2') format('woff2'),
-  url('/fonts/BrittanySignatureRegular.woff') format('woff');
+  font-family: 'Brittany Signature';
+  src: url('../fonts/BrittanySignatureRegular.woff2') format('woff2'),
+  url('../fonts/BrittanySignatureRegular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -19,9 +19,8 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 .main-section{
-  height: 110vh;
+  height: 100vh;
   width: 100%;
   background-color: #f46060;
   /* background-color: #4397e8; */
@@ -62,7 +61,6 @@
   width: 9rem;
   height: 2.5rem;
   margin: 1.3rem;
-  font-size: 1rem !important;
   border-radius: 5px;
   border: none;
   font-family: 'Be Vietnam Pro', sans-serif;
@@ -468,7 +466,7 @@
     }
   }
 
-  .carousel12 {
+  .carousel {
     position: relative;
     z-index: 1;
     height: 100vh;
@@ -476,7 +474,7 @@
     pointer-events: none;
   }
   
-  .carousel-item12 {
+  .carousel-item {
     --items: 10;
     --width: clamp(150px, 30vw,  300px);
     --height: clamp(200px, 40vw,  400px);
