@@ -32,11 +32,13 @@ const Profile = () => {
     
     <div>
        <div  className='App'>
-        <Header/>
-        <div className="main-container">
-          <LeftContainer />
-          <MiddleContainer username={user.displayName} />
-        </div>
+      
+      <Header/>
+      <div className="main-container">
+        <LeftContainer />
+      <MiddleContainer username={user.displayName} />
+    
+      </div>
     </div>
     </div>
   )

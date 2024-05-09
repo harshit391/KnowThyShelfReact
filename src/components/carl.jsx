@@ -24,7 +24,7 @@ const Carl = () => {
   const carouselItemsRef = useRef(null);
 
   useEffect(() => {
-    const carItems = document.querySelectorAll('.carousel-item12');
+    const carItems = document.querySelectorAll('.carousel-item');
     carouselItemsRef.current = carItems;
     animate(carouselItemsRef.current);
     move(carouselItemsRef.current);
@@ -33,8 +33,8 @@ const Carl = () => {
   
 
   return (
-      <section className="carl12">
-        <div className="carousel12">
+      <section className="carl">
+        <div className="carousel">
           <CarlItem title = "Persepolis" number = "01" source = {comic}></CarlItem>
           <CarlItem title = "Persepolis" number = "02" source = {fiction}></CarlItem>
           <CarlItem title = "Persepolis" number = "03" source = {horror}></CarlItem>

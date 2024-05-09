@@ -2,7 +2,7 @@
 export function FAQSection() {
   return <section className="py-3 py-md-5" style={{
     backgroundColor: '#60aaf4',
-    fontFamily: "Be Vietnam Pro', sans-serif !important"
+    fontFamily: "'Be Vietnam Pro', sans-serif !important"
   }}>
         <div className="container mb-5">
           <div className="row gy-5 align-items-lg-center justify-content-center">

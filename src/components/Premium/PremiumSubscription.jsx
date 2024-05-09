@@ -1,24 +1,26 @@
+import { AnimationElements } from './AnimationElements';
+import { MainTitle } from './MainTitle';
 import { JoinButton } from './JoinButton';
 import { FAQSection } from './FAQSection';
 import { SignUp } from './SignUp';
 import { PricingSection } from './PricingSection';
-import ModelTour from './ModalTour';
+import { ModalTour } from './ModalTour';
 import React from 'react';
-import Main from '../Main';
-import '../../assets/css/Premium.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../assets/css/Premium.css'
 
 
 function PremiumPage() {
   return (
-    <div>
+    <>
       <JoinButton />
-      <Main />
-      <ModelTour />
+      <MainTitle />
+      <AnimationElements />
+      <ModalTour />
       <PricingSection />
       <SignUp />
       <FAQSection />
-    </div>
+    </>
   );
 }
 
