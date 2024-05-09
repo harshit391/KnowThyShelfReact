@@ -43,7 +43,7 @@ const Authentication = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/premium" element={<PremiumPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/authentication" element={<Authentication />} />
       </Routes>
     );
   }
