@@ -58,7 +58,7 @@ function SignInSignUpPage({user}) {
   };
 
   return (
-    <div id="container" className={`container ${isSignUp ? 'sign-up' : 'sign-in'}`}>
+    <div id="container214" className={`container214 ${isSignUp ? 'sign-up' : 'sign-in'}`}>
       
   
       <div className="row">

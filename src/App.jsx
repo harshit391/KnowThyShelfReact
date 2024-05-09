@@ -16,7 +16,7 @@ const KnowThyShelf = () => {
     <>
      <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/library" element={<LibraryComponent />} />
+        <Route path="/library1" element={<LibraryComponent />} />
         <Route path="/browser" element={<Browser />} />
         <Route path='/dashboard' element={<Dashboard/>}></Route>
         {/* <Route path='/premium' element={<PremiumPage/>}></Route> */}
