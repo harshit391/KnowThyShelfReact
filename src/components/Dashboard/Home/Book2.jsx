@@ -1,13 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Book2 = ({item}) => {
-    console.log(item);
     const title = item["title"];
     const author = item["author"];
     const bookInfo = item["info"];
     const bookImg = item["image"];
     return (
-        <div className="book1">
+        <div>
             <div className="book-sections">
                 <div className="left-image">
                     <img src={bookImg} alt=""/>   
@@ -24,7 +24,7 @@ const Book2 = ({item}) => {
 
                         </div>
                         <div className="want-to-read-btn">
-                            <a href="./readingPage/index2.html"><button>Want to read</button></a>
+                            <Link to={"/" + title}><button>Want to read</button></Link>
                         </div>
                         <div className="info-par">
                             {bookInfo}
