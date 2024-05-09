@@ -9,6 +9,7 @@ import {ref,uploadBytesResumable,getDownloadURL} from "firebase/storage"
 import './header.css'
 import logo from './logo.jpg' 
 import profilePic from './sungjinwoo.jpg'
+import { Link } from 'react-router-dom';
 
 const auth=getAuth(app);
 
@@ -30,11 +31,11 @@ const Header = () => {
       </div>
 
       <ul>
-        <li><a href="./dashboard">Home</a></li>
-        <li><a href="./profile">Profile</a></li>
-        <li><a href="./library">Library</a></li>
-        <li><a href="./browser">Browse</a></li>
-        <li><a href="./premium">Premium</a></li>
+        <li><Link to="/dashboard">Home</Link></li>
+        <li><Link to="/profile">Profile</Link></li>
+        <li><Link to="/library">Library</Link></li>
+        <li><Link to="/browser">Browse</Link></li>
+        <li><Link to="/premium">Premium</Link></li>
         <li><button onClick={()=>signOut(auth)} className='button'>Logout</button></li>
       </ul>
 

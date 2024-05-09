@@ -7,6 +7,8 @@ import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'; // Import 
 import { app } from "../assets/scripts/firebase";
 import Profile from './Authentication/Profile';
 import '../assets/css/Authentication.css'
+import { Route, Routes } from 'react-router-dom';
+import Dashboard from './Dashboard/Dashboard';
 
 const auth = getAuth(app);
 
@@ -35,9 +37,11 @@ const Authentication = () => {
 
   if (user !== null) {
     return (
-      <div>
-        <Profile />
-      </div>
+      <Routes>
+        <Route path="/" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
     );
   }
 };
