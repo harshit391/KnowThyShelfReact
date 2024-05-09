@@ -9,5 +9,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
     <App />
   </Router>,
-  document.getElementById('root')
 )

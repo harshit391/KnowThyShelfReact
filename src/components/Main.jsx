@@ -21,7 +21,7 @@ const Main = ({showOrNot}) => {
     return (
         <div className="main-section">
       <div className="join-us main-buttons">
-        <a href="./LoginSignup/KTS_LoginSignup.html"><button type="button">Join Us</button></a>
+        <Link to="/authentication"><button type="button">Join Us</button></Link>
       </div>
       <div className="main-title">
         <h1>Know Thy Shelf</h1>
