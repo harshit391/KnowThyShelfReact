@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 
 export function JoinButton() {
   return <div className="join-us main-buttons">
-      <a href="./authentication">
+      <Link to="/authentication">
         <button type="button">Join Us</button>
-      </a>
-      <a href="./" style={{
+      </Link>
+      <Link to="/" style={{
       textDecoration: 'none'
     }}>
         <button type="button" style={{
@@ -12,7 +13,7 @@ export function JoinButton() {
       }}>
           &lt; Go Back
         </button>
-      </a>
+      </Link>
     </div>;
 }
   

@@ -9,6 +9,7 @@ import Profile from './Authentication/Profile';
 import '../assets/css/Authentication.css'
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from './Dashboard/Dashboard';
+import PremiumPage from './Premium/PremiumSubscription';
 
 const auth = getAuth(app);
 
@@ -40,6 +41,8 @@ const Authentication = () => {
       <Routes>
         <Route path="/" element={<Profile />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/premium" element={<PremiumPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     );

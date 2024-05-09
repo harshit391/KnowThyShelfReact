@@ -6,7 +6,7 @@ import { SignUp } from './SignUp';
 import { PricingSection } from './PricingSection';
 import { ModalTour } from './ModalTour';
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import '../../assets/css/Premium.css'
 
 
@@ -15,7 +15,6 @@ function PremiumPage() {
     <>
       <JoinButton />
       <MainTitle />
-      <AnimationElements />
       <ModalTour />
       <PricingSection />
       <SignUp />
