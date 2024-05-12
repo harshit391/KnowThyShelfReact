@@ -7,8 +7,8 @@
 
 @font-face {
   font-family: 'Brittany Signature';
-  src: url('../fonts/BrittanySignatureRegular.woff2') format('woff2'),
-  url('../fonts/BrittanySignatureRegular.woff') format('woff');
+  src: url('/fonts/BrittanySignatureRegular.woff2') format('woff2'),
+  url('/fonts/BrittanySignatureRegular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -20,7 +20,7 @@
   box-sizing: border-box;
 }
 .main-section{
-  height: 100vh;
+  height: 120vh;
   width: 100%;
   background-color: #f46060;
   /* background-color: #4397e8; */
