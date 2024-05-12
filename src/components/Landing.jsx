@@ -8,10 +8,11 @@ import '../App.css'
 const Landing = () => {
   return (
     <div>
-        <Main/>
+      <Main/>
       <Carl/>
       <ChooseYourPick />
       <HowKnowThyShelfWorks/>      
+      <iframe src="main.html" width="100%" height="800vh"></iframe>
     </div>
   )
 }
