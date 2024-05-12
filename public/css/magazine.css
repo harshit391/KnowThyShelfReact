@@ -1,5 +1,12 @@
+body{
+	overflow:hidden;
+	margin: 0;
+	padding:0;
+	background-color: #f46060;
+}
 
-.magazine-viewport .container1{
+
+.magazine-viewport .container{
 	position:absolute;
 	top:50%;
 	left:50%;
