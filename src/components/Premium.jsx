@@ -10,7 +10,7 @@ import FAQ from './Premium/FAQ';
 const Premium = () => {
     return (
         <div className='premium'>
-          <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+          <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
           <Main/>
           <WhatsNew/>
           <Subscription/>
