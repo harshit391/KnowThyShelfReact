@@ -22,9 +22,9 @@ const Main = () => {
         <h3>Explore Worlds. Pen Your Own.</h3>
         <p>Begin your literary journey on our platform – read, write, and connect with fellow enthusiasts!</p>
         <div className="main-buttons">
-          <a href="./authentication"><button>Start Reading</button></a>
-          <a href="./authentication"><button>Start Writing</button></a>
-          <a href="./premium" style={{ textDecoration: 'none' }}>
+          <Link to="/authentication"><button>Start Reading</button></Link>
+          <Link to="/authentication"><button>Start Writing</button></Link>
+          <Link to="/premium" style={{ textDecoration: 'none' }}>
             <button className="premium" type="button">
               <div className="premium-div">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="#5c10ff" stroke="#5c10ff" strokeWidth="2" aria-hidden="true" strokeLinecap="round" strokeLinejoin="round" className="zap-icon">
@@ -33,7 +33,7 @@ const Main = () => {
                 Try Premium
               </div>
             </button>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="animation-elements">
