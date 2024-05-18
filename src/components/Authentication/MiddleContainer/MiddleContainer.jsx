@@ -43,6 +43,46 @@ const MiddleContainer = ({ username }) => {
   },[currentUser]);
   return (
     <div className="middle-container containerProfile">
+
+      <div style={{display: "flex", width: "200vw"}}>
+      <div className="menu-box block">
+        <h2 className="titular">MENU BOX</h2>
+        <ul className="menu-box-menu">
+          <li>
+            <a className="menu-box-tab" href="#6">
+              <span className="icon fontawesome-envelope scnd-font-color"></span>
+              Favorites
+              <div className="menu-box-number">10</div>
+            </a>
+          </li>
+          <li>
+            <a className="menu-box-tab" href="#8">
+              <span className="icon entypo-paper-plane scnd-font-color"></span>
+              Recomendations
+              <div className="menu-box-number">3</div>
+            </a>
+          </li>
+          <li>
+            <a className="menu-box-tab" href="#10">
+              <span className="icon entypo-calendar scnd-font-color"></span>
+              History
+              <div className="menu-box-number">5</div>
+            </a>
+          </li>
+          <li>
+            <a className="menu-box-tab" href="#12">
+              <span className="icon entypo-cog scnd-font-color"></span>
+              Account Settings
+            </a>
+          </li>
+          <li>
+            <a className="menu-box-tab" href="#13">
+              <span className="icon entypo-chart-line scnd-font-color"></span>
+              Statistics
+            </a>
+          </li>
+        </ul>
+      </div>
     
       <div className="profile_main block">
         <div className="imageMain">
@@ -56,8 +96,13 @@ const MiddleContainer = ({ username }) => {
           <div>Books Currently Reading: 3</div>
           <div>Current Streak: 55</div>
         </div>
-        <input type="file" onChange={handleChange} />
-        <button disabled={loading||!photo} onClick={handleClick}>Upload</button>
+        <div className="upload-btns">
+          <label htmlFor="file" className="custom-file-upload">Choose Profile Pic</label>
+          <input id='file' type="file" onChange={handleChange} style={{display: 'none'}}/>
+          <button className='upload-btn' disabled={loading||!photo} onClick={handleClick}>Upload</button>
+        </div>
+      </div> 
+
       </div>
 
      

@@ -1,4 +1,6 @@
 /* MiddleContainer.css */
+
+
 .containerProfile {
     float: left;
     width: 300px;
@@ -10,11 +12,45 @@
     border-radius: 5px;
 }
 .middle-container {
-    margin: 10px 25px;
+    display: flex;
+    flex-direction: column;
+    /* margin-bottom: 9rem; */
+    margin-left: 2rem;
+    width: 40rem;
+    height: 190vh;
+    border: 1px solid black;
   }
   
+.custom-file-upload{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 80%;
+}
+
+.upload-btns{
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.upload-btn{
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 80%;
+}
+
   .profile_main {
-    height: 51vh;
+    height: 52vh;
     width: 40vw;
     display: flex;
     flex-direction: column;
@@ -532,8 +568,5 @@
         width: 100%;
     }
 }
-
-
-
 
 
