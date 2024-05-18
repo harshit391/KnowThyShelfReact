@@ -4,7 +4,7 @@ import Main from './Main'
 import ChooseYourPick from './ChooseYourPick'
 import HowKnowThyShelfWorks from './HowKnowThyShelfWorks'
 import '../App.css'
-import Test from './Testimonials'
+
 
 const Landing = () => {
   return (
@@ -13,7 +13,6 @@ const Landing = () => {
       <Carl/>
       <ChooseYourPick />
       <HowKnowThyShelfWorks/>      
-      {/* <Test/> */}
     </div>
   )
 }
