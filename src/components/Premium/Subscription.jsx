@@ -1,6 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { app } from "../../assets/scripts/firebase";
+const auth = getAuth(app);
+
 
 const Subscription = () => {
+  const [user, setUser] = useState(null);
+  const [logged, setLogged] = useState("#container123");
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        console.log(user);
+      } else {
+        console.log("You are logged out");
+        setUser(null);
+      }
+    });
+
+    if (user !== null) {
+      setLogged("https://buy.stripe.com/test_bIYg1X4ae32SfcY7ss");
+    }
+  });
+
     return (
   <div className="container-fluid py-5" style={{background: "linear-gradient(135deg, #f46060, #f24848)"}}>
     <div className="container p-5">
@@ -15,7 +40,7 @@ const Subscription = () => {
                 <span className="h2">FREE</span>
                 <br/><br/>
               </div>
-              <p className="card-text">This is our Standard model.</p>
+              <p className="card-text text-center">This is our Standard model.</p>
             </div>
             <ul className="list-group list-group-flush">
               <li className="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check" viewBox="0 0 16 16">
@@ -43,7 +68,7 @@ const Subscription = () => {
                 <span className="h2">₹99.00</span>/month 
                 <br/><br/>
               </div>
-              <p className="card-text">Get the KnowThyShelf Premium Subscription!!</p>
+              <p className="card-text text-center">Get the KnowThyShelf Premium Subscription!!</p>
             </div>
             <ul className="list-group list-group-flush">
               <li className="list-group-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-check" viewBox="0 0 16 16">
@@ -57,7 +82,7 @@ const Subscription = () => {
               </svg> Listen to Audio Books</li>
             </ul>
             <div className="card-body text-center">
-              <a href="https://buy.stripe.com/test_bIYg1X4ae32SfcY7ss"><button className="btn btn-outline-primary btn-lg" style={{borderRadius:"30px"}}>Select</button></a>
+              <a href={logged}><button className="btn btn-outline-primary btn-lg" style={{borderRadius:"30px"}}>Select</button></a>
             </div>
           </div>
         </div>
