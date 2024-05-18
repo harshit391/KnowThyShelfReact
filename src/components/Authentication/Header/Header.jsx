@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 const auth=getAuth(app);
 
-const Header = () => {
+const Header = ({prev}) => {
 
   const currentUser=useAuth();
   const [photo,setPhoto]=useState(null);
@@ -26,23 +26,27 @@ const Header = () => {
   },[currentUser]);
   return (
     <header>
+      <Link to="/">
       <div className="logo">
         <img src={logo} alt="logo" />
       </div>
+      </Link>
 
       <ul>
         <li><Link to="/dashboard">Home</Link></li>
         <li><Link to="/profile">Profile</Link></li>
         <li><Link to="/library">Library</Link></li>
         <li><Link to="/browser">Browse</Link></li>
-        <li><Link to="/premium">Premium</Link></li>
+        <li><Link to={"/premium/?type=" + prev}>Premium</Link></li>
         <li><button onClick={()=>signOut(auth)} className='button'>Logout</button></li>
       </ul>
 
+      <Link to="/profile">
       <div className="profilePic">
-        <FontAwesomeIcon icon={faSearch} />
-        <img src={photoURL||profilePic} alt="Profile-Pic" style={{ borderRadius: '50%' }} />
+        {/* <FontAwesomeIcon className='fas' icon={faSearch} /> */}
+        <img src={photoURL||profilePic} alt="Profile-Pic" style={{ borderRadius: '50%', width:"50px", height: "50px" }} />
       </div>
+      </Link>
     </header>
   );
 };

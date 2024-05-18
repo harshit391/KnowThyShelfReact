@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { app } from "../assets/scripts/firebase";
+const auth = getAuth(app);
+
+
 import Book from './WebsiteElements/Book.png';
 import Heart from './WebsiteElements/Heart.png';
 import Flower from './WebsiteElements/Flower.png';
@@ -12,18 +17,38 @@ import {Link} from 'react-router-dom';
 import BlueBook from './WebsiteElements/BlueBook.png';
 
 const Main = () => {
+  const [user, setUser] = useState(null);
+  const [logged, setLogged] = useState("Join Us");
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        console.log(user);
+      } else {
+        console.log("You are logged out");
+        setUser(null);
+      }
+    });
+
+    if (user !== null) {
+      setLogged("Go to Profile");
+    }
+  });
+
+  
     return (
         <div className="main-section">
       <div className="join-us main-buttons">
-        <Link to="/authentication" ><button type="button">Join Us</button></Link>
+        <Link to="/authentication" ><button type="button">{logged}</button></Link>
       </div>
       <div className="main-title">
         <h1>Know Thy Shelf</h1>
         <h3>Explore Worlds. Pen Your Own.</h3>
-        <p>Begin your literary journey on our platform – read, write, and connect with fellow enthusiasts!</p>
+        <p>Begin your literary journey on our platform - read, write, and connect with fellow enthusiasts!</p>
         <div className="main-buttons">
-          <Link to="/authentication"><button>Start Reading</button></Link>
-          <Link to="/authentication"><button>Start Writing</button></Link>
+          <Link to="/authentication?type=read"><button>Start Reading</button></Link>
+          <Link to="/authentication?type=write"><button>Start Writing</button></Link>
           <Link to="/premium" style={{ textDecoration: 'none' }}>
             <button className="premium" type="button">
               <div className="premium-div">

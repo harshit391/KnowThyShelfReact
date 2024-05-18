@@ -4,11 +4,10 @@ import LeftContainer from './LeftContainer/LeftContainer';
 import MiddleContainer from './MiddleContainer/MiddleContainer';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import {app} from "../../assets/scripts/firebase"
-import "./Profile.css" 
-
 const auth=getAuth(app);
 
-
+import "./Profile.css" 
+import Authentication from '../Authentication';
 
 const Profile = () => {
     const [user,setUser]=useState(null);
@@ -32,7 +31,7 @@ const Profile = () => {
     <div>
        <div  className='App'>
       
-      <Header/>
+      <Header prev='profile'/>
       <div className="main-container">
         <LeftContainer />
       <MiddleContainer username={user.displayName} />
@@ -41,6 +40,8 @@ const Profile = () => {
     </div>
     </div>
   )
+} else{
+  return <Authentication/>
 }
 }
 

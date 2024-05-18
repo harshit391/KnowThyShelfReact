@@ -1,6 +1,11 @@
 import React from "react";
 import Book2 from './Book2'
 
+
+import comic from "/images/comic.jpg";
+import thriller from "/images/thriller.jpg";
+import fiction from "/images/fiction.jpg";
+
 const Middle = ({books}) => {
     return (
         <div className="middle-section">

@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { app } from "../../assets/scripts/firebase";
+const auth = getAuth(app);
+
+
 
 const SignUp = () => {
+
+    const [user, setUser] = useState(null);
+  const [logged, setLogged] = useState(false);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        console.log(user);
+      } else {
+        console.log("You are logged out");
+        setUser(null);
+      }
+    });
+
+    if (user !== null) {
+      setLogged(true);
+    }
+  });
+
+
+    if (!logged) {
     return (
-        <div className="signupcont" style={{display: "flex", justifyContent: "center", alignItems: "center", height: "120vh", width: "100%", backgroundColor: "#f48560"}}>
+        <div className="signupcont" style={{display: {logged}, justifyContent: "center", alignItems: "center", height: "120vh", width: "100%", backgroundColor: "#f48560"}}>
     <div id="main-wrapper" className="container py-5" style={{fontFamily: "'Be Vietnam Pro', sans-serif"}}>
       <div className="row justify-content-center">
           <div className="col-10">
@@ -51,6 +79,9 @@ const SignUp = () => {
     </div>
   </div>
     )
+}else{
+    return <></>
+}
 }
 
 export default SignUp;

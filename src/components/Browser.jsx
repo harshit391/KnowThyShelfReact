@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../assets/css/Browser.css'
 import Header from './Authentication/Header/Header';
+
+
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import {app} from "../assets/scripts/firebase"
+import Authentication from '../components/Authentication';
+const auth=getAuth(app);
+
+
 const Browser = () => {
     const [searchResults, setSearchResults] = useState([]);
     const [showSearchResults, setShowSearchResults] = useState(false);
@@ -28,9 +36,26 @@ const Browser = () => {
         setShowGenreGrid(false);
     };
 
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setUser(user);
+          console.log(user);
+        } else {
+          console.log("You are logged out");
+          setUser(null);
+        }
+      });
+    }, []);
+
+    
+
+    if (user) {
     return (
         <div className='browser-bg'>
-            <Header/>
+            <Header prev = 'browser'/>
 
             <div className="browse-section">
                 <div className="search-content">
@@ -76,6 +101,11 @@ const Browser = () => {
             )}
         </div>
     );
+    } else {
+        return (
+            <Authentication />
+        );
+    }
 };
 
 export default Browser;

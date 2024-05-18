@@ -3,6 +3,12 @@ import '../../src/assets/css/Library.css';
 import Header from './Authentication/Header/Header'
 import '../App.css'
 
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import {app} from "../assets/scripts/firebase"
+import Authentication from '../components/Authentication';
+const auth=getAuth(app);
+
+
 function LibraryComponent() {
     // Create separate state objects for each genre
     const [horrorBooks, setHorrorBooks] = useState([]);
@@ -21,6 +27,7 @@ function LibraryComponent() {
                 return [];
             }
         };
+
 
         const fetchAndSetBooks = async () => {
             const horror = await fetchBooks('horror');
@@ -42,9 +49,25 @@ function LibraryComponent() {
     useEffect(() => {
         console.log('Horror Books:', horrorBooks);
     }, [horrorBooks]); 
+
+    const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        console.log(user);
+      } else {
+        console.log("You are logged out");
+        setUser(null);
+      }
+    });
+  }, []);
+
+    if (user) {
     return (
         <div>
-            <Header/>
+            <Header prev='library'/>
             <div className="lib-main">
                 <div className="circle">
                     <div className="lib-head">
@@ -124,6 +147,9 @@ function LibraryComponent() {
             </div>
         </div>
     );
+} else {
+    return <Authentication />;
+}
 }
 
 export default LibraryComponent;

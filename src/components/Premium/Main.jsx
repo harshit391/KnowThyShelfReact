@@ -1,12 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { app } from "../../assets/scripts/firebase";
+const auth = getAuth(app);
 
-const Main = () => {
+const Main = ({goback}) => {
+    const [user, setUser] = useState(null);
+  const [logged, setLogged] = useState("Join Us");
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        console.log(user);
+      } else {
+        console.log("You are logged out");
+        setUser(null);
+      }
+    });
+
+    if (user !== null) {
+      setLogged("Go to Profile");
+    }
+  });   
+
+  let str = "/";
+
+  if (goback) {
+    str += goback;
+  }
+
+  console.log(str);
+
     return (
+       
+
         <div className="main-section">
     <div className="join-us main-buttons">
-        <Link to="/authentication"><button type="button">Join Us</button></Link>
-        <Link to="/" style={{textDecoration: "none"}}><button type="button" style={{marginTop: "0"}}>Go Back</button></Link>
+        <Link to="/authentication" className="joinbtn"><button type="button">{logged}</button></Link>
+        <Link to={str} style={{textDecoration: "none"}}><button type="button" style={{marginTop: "0"}}>Go Back</button></Link>
     </div>
     <div className="main-title">
         <h1 style={{fontSize: "2em ", marginTop: "22px", fontWeight: "bold"}}>Know Thy Shelf</h1>
@@ -14,8 +46,8 @@ const Main = () => {
         <p style={{fontSize:"16px", marginTop: "25px"}}>Indulge in the warmth of premium reading - where every page feels like a snug embrace. Our exclusive membership is your passport to a haven of stories, relaxation, and literary bliss..
           Unlock a realm where every page is an adventure waiting to unfold. Embark on a literary journey like never before!</p>
         <div className="main-buttons">
-            <a href="#"><button style={{fontSize: "1rem"}}>Start Reading</button></a>
-            <a href="#"><button style={{fontSize: "1rem"}}>Start Writing</button></a>
+            <a href="/authentication/?type=read"><button style={{fontSize: "1rem"}}>Start Reading</button></a>
+            <a href="/authentication/?type=write"><button style={{fontSize: "1rem"}}>Start Writing</button></a>
         </div>
         
     </div>
