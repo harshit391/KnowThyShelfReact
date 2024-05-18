@@ -30,22 +30,6 @@ const Browser = () => {
 
     return (
         <div className='browser-bg'>
-            {/* <header>
-                <div className="logo">
-                    <img src="./images/logo.png" alt="" />
-                </div>
-                <ul>
-                    <li><a href="./main_dashboard.html">Home</a></li>
-                    <li><a href="./profile.html">Profile</a></li>
-                    <li><a href="./library.html">Library</a></li>
-                    <li><a href="./browser.html">Browse</a></li>
-                    <li><a href="">Forums</a></li>
-                </ul>
-                <div className="profile">
-                    <i className="fas fa-search"></i>
-                    <img src="./images/sungjinwoo.jpg" alt="" style={{ borderRadius: '50%' }} />
-                </div>
-            </header> */}
             <Header/>
 
             <div className="browse-section">

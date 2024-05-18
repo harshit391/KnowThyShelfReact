@@ -44,24 +44,6 @@ function LibraryComponent() {
     }, [horrorBooks]); 
     return (
         <div>
-            {/* <header>
-                <div className="logo">
-                    <img src="./images/logo.png" alt="" />
-                </div>
-
-                <ul>
-                    <li><a href="./main_dashboard">Home</a></li>
-                    <li><a href="./profile">Profile</a></li>
-                    <li><a href="./library">Library</a></li>
-                    <li><a href="./browser">Browse</a></li>
-                    <li><a href="">Forums</a></li>
-                </ul>
-
-                <div className="profile">
-                    <i className="fas fa-search"></i>
-                    <img src="./images/sungjinwoo.jpg" alt="" style={{ borderRadius: '50%' }} />
-                </div>
-            </header> */}
             <Header/>
             <div className="lib-main">
                 <div className="circle">
@@ -73,9 +55,9 @@ function LibraryComponent() {
             </div>
             
             {/* Render books for each genre */}
-            <div>
+            <div className='lib-child'>
                 <h3 className="genre-head">Explore more in Horror</h3>
-                <div className="bookList">
+                <div className="bookList12">
                     {horrorBooks.map((book) => (
                         <div key={book.id} className="book">
                             {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail && (
@@ -90,9 +72,9 @@ function LibraryComponent() {
                 </div>
             </div>
 
-            <div>
+            <div className='lib-child'>
                 <h3 className="genre-head">Explore more in Romance</h3>
-                <div className="bookList">
+                <div className="bookList12">
                     {romanceBooks.map((book, idx) => (
                         <div key={idx} className="book">
                             {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail && (
@@ -107,9 +89,9 @@ function LibraryComponent() {
                 </div>
             </div>
 
-            <div>
+            <div className='lib-child'>
                 <h3 className="genre-head">Explore more in Comedy</h3>
-                <div className="bookList">
+                <div className="bookList12">
                     {comedyBooks.map((book, idx) => (
                         <div key={idx} className="book">
                             {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail && (
@@ -124,9 +106,9 @@ function LibraryComponent() {
                 </div>
             </div>
 
-            <div>
+            <div className='lib-child'>
                 <h3 className="genre-head">Explore more in Sci-Fi</h3>
-                <div className="bookList">
+                <div className="bookList12">
                     {scifiBooks.map((book, idx) => (
                         <div key={idx} className="book">
                             {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail && (

@@ -1,0 +1,173 @@
+.write-body{
+    background-color: #e7e3d3;
+    padding: 2rem;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.reimagined{
+    background-color: #f46060;
+    color: white;
+    height: 1rem;
+}
+.write-head{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.write-head2{
+    margin:2rem 10rem;
+    font-size: 1.2rem;
+}
+.input-data{
+    height: 60vh;
+    width: 50vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f46060;
+    border-radius: 1rem;
+    padding-right: 10rem;
+    
+
+}
+.input-form form{ 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title-input{
+    
+   
+    color: black;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    
+    
+}
+.enterTitle{
+    background: none;
+    border: none;
+    height: 3rem;
+    width: 32rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    color: black;
+    text-align: center;
+
+}
+.story-input{
+    background: none;
+    border: none;
+    height: 15rem;
+    width: 32rem;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    color: black;
+    background-color: white;
+}
+
+.book-cover{
+    border: 4px solid black;
+    height: 25rem;
+    background-color: white;
+    border-radius: 10px;
+    width: 20rem;
+    padding: 1.5rem;
+    position: absolute;
+    right: 200px;
+    bottom: 25px;
+}
+
+.write-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.file-input{
+    border: none;
+}
+
+.write-buttons button{
+    background-color: white;
+    border: 1px #f46060;
+    height: 2.5rem;
+    width: 7rem;
+    margin: 1rem;
+    color: grey;
+    border-radius: 5px;
+    /* padding: 1rem; */
+}
+
+
+.write-buttons input{
+    background-color: white;
+    border: 1px #f46060;
+    height: 2.5rem;
+    width: 7rem;
+    margin: 1rem;
+    color: grey;
+    border-radius: 5px;
+    /* padding: 1rem; */
+}
+
+
+.write-italic{
+    margin-top: 3rem;
+}
+.book-cover p{
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem;
+   
+}
+
+.book-image img{
+    width: 15rem;
+    margin: 1rem;
+}
+.add-image{
+    border:none;
+    background: none;
+}
+
+.book-desc{
+    width: 100%;
+    height: 10rem;
+    overflow-wrap: break-word;
+    overflow-y: hidden;
+}
+
+.book-title{
+    width: 100%;
+    height: 5rem;
+    overflow-wrap: break-word;
+    overflow-y: hidden;
+}
+
+.custom-file{
+    background-color: white;
+    border: 1px #f46060;
+    height: 2.5rem;
+    width: 7rem;
+    margin: 1rem;
+    color: grey;
+    border-radius: 5px;
+    cursor: pointer;
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.submit-btn{
+    background-color: white;
+    border: 1px #f46060;
+    height: 2.5rem;
+    width: 7rem;
+    margin: 1rem;
+    color: grey;
+    border-radius: 5px;
+    cursor: pointer;
+}
