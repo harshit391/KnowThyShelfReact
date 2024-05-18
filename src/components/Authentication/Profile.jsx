@@ -17,7 +17,6 @@ const Profile = () => {
         onAuthStateChanged(auth,(user)=>{
           if(user){
             setUser(user);
-            //yes you logged in
            
           }
           else{

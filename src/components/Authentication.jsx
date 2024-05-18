@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Page from './Authentication/Page';
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'; // Import from 'firebase/auth'
-import { app } from "../assets/scripts/firebase";
-import Profile from './Authentication/Profile';
 import '../assets/css/Authentication.css'
+import Profile from './Authentication/Profile';
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from './Dashboard/Dashboard';
 
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { app } from "../assets/scripts/firebase";
 const auth = getAuth(app);
 
 const Authentication = () => {
@@ -34,11 +34,7 @@ const Authentication = () => {
 
   if (user !== null) {
     return (
-      <Routes>
-        <Route path="/" element={<Profile />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
+      <Profile />
     );
   }
 };
