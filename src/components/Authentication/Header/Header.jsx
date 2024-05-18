@@ -37,6 +37,7 @@ const Header = ({prev}) => {
         <li><Link to="/profile">Profile</Link></li>
         <li><Link to="/library">Library</Link></li>
         <li><Link to="/browser">Browse</Link></li>
+        <li><Link to="/authentication?type=write">Write a Book</Link></li>
         <li><Link to={"/premium/?type=" + prev}>Premium</Link></li>
         <li><button onClick={()=>signOut(auth)} className='button'>Logout</button></li>
       </ul>
