@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Header from './Header/Header';
-import LeftContainer from './LeftContainer/LeftContainer';
 import MiddleContainer from './MiddleContainer/MiddleContainer';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import {app} from "../../assets/scripts/firebase"
@@ -34,7 +33,6 @@ const Profile = () => {
       
       <Header prev='profile'/>
       <div className="main-container">
-      <LeftContainer/>
       <MiddleContainer username={user.displayName}/>
       </div>
     </div>

@@ -1,5 +1,6 @@
   .main-container {
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 100%;
+    font-family: 'Be Vietnam Pro', sans-serif !important;
   }
