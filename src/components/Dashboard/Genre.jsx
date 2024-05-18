@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Card from "./Card";
 
-const Genre = () => {
+const Genre = ({set}) => {
+
     return (
         <div className="love-read-container">
             <h5>Based on genres you love</h5>
-            <div className="love-read-collection"></div>
+            <div className="love-read-collection">
+                {set.map((item) => <Card id={item.id} key={item.id} {...item.data()}/>)}
+            </div>
         </div>
     )
 }

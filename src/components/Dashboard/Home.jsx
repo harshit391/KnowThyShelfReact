@@ -3,11 +3,11 @@ import Left from "./Home/Left";
 import Middle from "./Home/Middle";
 import Right from "./Home/Right";
 
-const Home = ({books, set}) => {
+const Home = ({set}) => {
     return (
     <div className="main-home">
         <Left/>
-        <Middle books={books} set={set}/>
+        <Middle set={set}/>
         <Right/>
     </div>
     )

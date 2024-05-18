@@ -67,8 +67,9 @@ export async function upload(file, currentUser, setLoading) {
   alert("Uploaded file!");
 }
 
-export const handleNewThing = async (bookTitle, bookAuthor, bookImage, bookFile) => {
+export const handleNewThing = async (bookTitle, bookAuthor, bookImage, bookFile, bookDesc) => {
   const imageRef = ref(storage, `uploads/images/${Date.now()}-${bookTitle}`);
+
   const uploadResultImg = await uploadBytes(imageRef, bookImage);
 
   const fileRef = ref(storage, `uploads/files/${Date.now()}-${bookTitle}`);
@@ -76,6 +77,6 @@ export const handleNewThing = async (bookTitle, bookAuthor, bookImage, bookFile)
 
   const today = new Date();
 
-  const added = await addDoc(collection(firestore, 'books'), {"title" : bookTitle, "author" : bookAuthor, "cover" : uploadResultImg.ref.fullPath, "file" : uploadResultPdf.ref.fullPath, "time" : today.toDateString()});
+  const added = await addDoc(collection(firestore, 'books'), {"title" : bookTitle, "author" : bookAuthor, "cover" : uploadResultImg.ref.fullPath, "file" : uploadResultPdf.ref.fullPath, "time" : today.toDateString(), "desc": bookDesc});
   console.log(added);
 }

@@ -38,7 +38,7 @@ const firebaseConfig = {
 
 export const useFirebase = () => useContext(FirebaseContext);
 
-const firebaseApp = initializeApp(firebaseConfig);
+export const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
 const storage = getStorage(firebaseApp);
@@ -63,16 +63,21 @@ export const FirebaseProvider = (props) => {
 
   const signinWithGoogle = () => signInWithPopup(firebaseAuth, googleProvider);
 
-  const handleCreateNewListing = async (bookTitle, bookAuthor, bookImage, bookFile) => {
+  const handleCreateNewListing = async (bookTitle, bookAuthor, bookImage, bookFile, bookDesc) => {
     const imageRef = ref(storage, `uploads/images/${Date.now()}-${bookTitle}`);
     const uploadResultImg = await uploadBytes(imageRef, bookImage);
+    let uploadImg = uploadResultImg.ref.fullPath;
+
+    if (bookImage === null || bookImage === undefined || bookImage === "") {
+        uploadImg = "https://firebasestorage.googleapis.com/v0/b/knowthyshelf-41c1b.appspot.com/o/default%2Fsungjinwoo.jpg?alt=media&token=33c1de1d-773f-4b35-8849-ca5a7990808f";
+    }
 
     const fileRef = ref(storage, `uploads/files/${Date.now()}-${bookTitle}`);
     const uploadResultPdf = await uploadBytes(fileRef, bookFile);
 
     const today = new Date();
 
-    return await addDoc(collection(firestore, 'books'), {"title" : bookTitle, "author" : bookAuthor, "cover" : uploadResultImg.ref.fullPath, "file" : uploadResultPdf.ref.fullPath, "time" : today.toDateString()});
+    return await addDoc(collection(firestore, 'books'), {"title" : bookTitle, "author" : bookAuthor, "cover" : uploadImg, "file" : uploadResultPdf.ref.fullPath, "time" : today.toDateString(), "timestamp" : Date.now(), "info" : bookDesc});
     
   };
 

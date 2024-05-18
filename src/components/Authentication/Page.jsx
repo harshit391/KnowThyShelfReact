@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup,updateProfile,signOut} from "firebase/auth"
 import {app} from "../../assets/scripts/firebase"
-// import './style.css'
+
+import { firebaseApp } from '../../context/Firebase';
 
 import lap from "../../assets/images/Authentication/lap.png" 
 
-const auth=getAuth(app);
+const auth=getAuth(firebaseApp);
+
 const googleProvider=new GoogleAuthProvider();
 
 function SignInSignUpPage({user}) {

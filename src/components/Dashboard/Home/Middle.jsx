@@ -1,8 +1,8 @@
 import React from "react";
 import Book2 from './Book2'
-import { random } from "fontawesome";
 
-const Middle = ({books, set}) => {
+const Middle = ({set}) => {
+    set.sort((a, b) => b.data().timestamp - a.data().timestamp);
     return (
         <div className="middle-section">
             <div className="updates">
@@ -15,7 +15,7 @@ const Middle = ({books, set}) => {
                 </div>
                 
                 <div className="books-updates">
-                    {set.map((book) => <Book2 id={book.id} key={book.id} {...book.data()}/>)}
+                    {set.slice(0, 3).map((book) => <Book2 id={book.id} key={book.id} {...book.data()}/>)}
                 </div>
             </div>
         </div>
