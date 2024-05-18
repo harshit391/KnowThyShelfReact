@@ -1,3 +1,7 @@
+.left-container {
+    margin-left: 50vw;
+}
+
 .containerProfile {
     float: left;
     width: 300px;
@@ -67,14 +71,15 @@
 .menu-box-tab {
     line-height: 60px;
     display: block;
-    border-bottom: 1px solid #1f253d;
     -webkit-transition: background .2s;
     transition: background .2s;
+    margin-left:15px;
+    width: 100%;
 }
 
 .menu-box-tab:hover {
-    background: #50597b;
-    border-top: 1px solid #1f253d;
+    /* lighter version of antique white */
+    background: #f9f9f9;
     text-decoration: none;
 }
 

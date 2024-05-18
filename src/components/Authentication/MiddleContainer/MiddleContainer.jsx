@@ -44,46 +44,7 @@ const MiddleContainer = ({ username }) => {
   return (
     <div className="middle-container containerProfile">
 
-      <div style={{display: "flex", width: "200vw"}}>
-      <div className="menu-box block">
-        <h2 className="titular">MENU BOX</h2>
-        <ul className="menu-box-menu">
-          <li>
-            <a className="menu-box-tab" href="#6">
-              <span className="icon fontawesome-envelope scnd-font-color"></span>
-              Favorites
-              <div className="menu-box-number">10</div>
-            </a>
-          </li>
-          <li>
-            <a className="menu-box-tab" href="#8">
-              <span className="icon entypo-paper-plane scnd-font-color"></span>
-              Recomendations
-              <div className="menu-box-number">3</div>
-            </a>
-          </li>
-          <li>
-            <a className="menu-box-tab" href="#10">
-              <span className="icon entypo-calendar scnd-font-color"></span>
-              History
-              <div className="menu-box-number">5</div>
-            </a>
-          </li>
-          <li>
-            <a className="menu-box-tab" href="#12">
-              <span className="icon entypo-cog scnd-font-color"></span>
-              Account Settings
-            </a>
-          </li>
-          <li>
-            <a className="menu-box-tab" href="#13">
-              <span className="icon entypo-chart-line scnd-font-color"></span>
-              Statistics
-            </a>
-          </li>
-        </ul>
-      </div>
-    
+      <div style={{display: "flex"}}>
       <div className="profile_main block">
         <div className="imageMain">
         <img src={photoURL} alt="Profile" />
