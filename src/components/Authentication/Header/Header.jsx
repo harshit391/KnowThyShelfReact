@@ -44,7 +44,6 @@ const Header = ({prev}) => {
 
       <Link to="/profile">
       <div className="profilePic">
-        {/* <FontAwesomeIcon className='fas' icon={faSearch} /> */}
         <img src={photoURL||profilePic} alt="Profile-Pic" style={{ borderRadius: '50%', width:"50px", height: "50px" }} />
       </div>
       </Link>

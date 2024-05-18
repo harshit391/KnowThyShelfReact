@@ -12,14 +12,14 @@ import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import {app} from "../../assets/scripts/firebase"
 import Authentication from '../Authentication';
 
+import { useFirebase } from '../../context/Firebase';
+
 const auth=getAuth(app);
 
 
-const Dashboard = () => {
 
-    
-        
-    
+const Dashboard = () => {
+    const firebase = useFirebase();
   const books = [
         {
             title: "Book Title 1",
@@ -76,9 +76,14 @@ const Dashboard = () => {
             info: "Description of Book 3. Lorem ipsum dolor, sit amet consectetur adipisicing elit."
         },
     ];
+
+    const [bookSet,setBookSet] = useState([]);
     
 
     useEffect(() => {
+
+        firebase.listAllBooks().then(items => setBookSet(items.docs));
+
         const container = document.querySelector('.love-read-collection');
 
         if (container === null) return;
@@ -147,10 +152,10 @@ useEffect(()=>{
     <div>
         <Header prev="dashboard"/>
         <Search/>
-        <Home books = {books}/>
+        <Home books = {books} set={bookSet}/>
         <Genre/>
         <Reading/>
-    </div>
+    </div> 
   ) 
 } else {
     return <Authentication />

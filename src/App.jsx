@@ -9,7 +9,9 @@ import LibraryComponent from './components/Library';
 import Dashboard from './components/Dashboard/Dashboard';
 import Premium from './components/Premium';
 import Write from './components/Writing/Write';
+import Reader from './components/Reader/Reader';
 // import PremiumPage from './components/Premium/PremiumSubscription';
+
 
 
 const KnowThyShelf = () => {
@@ -27,6 +29,7 @@ const KnowThyShelf = () => {
         {/* Add more routes here if needed */}
         <Route path="/premium" element={<Premium/>}/>
         <Route path="/write" element={<Write/>}/>
+        <Route path="/bookread" element={<Reader/>}/>
       </Routes>
     </>
   );

@@ -1,10 +1,12 @@
 // Import the functions you need from the SDKs you need
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, updateProfile } from "firebase/auth";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+
 
 
 
@@ -31,12 +33,12 @@ const firebaseConfig = {
 
 };
 
-
 // Initialize Firebase
 
- export const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-const storage = getStorage();
+const storage = getStorage(app);
+const firestore = getFirestore(app);
 
 
 export function useAuth() {
@@ -63,5 +65,17 @@ export async function upload(file, currentUser, setLoading) {
   
   setLoading(false);
   alert("Uploaded file!");
-  
+}
+
+export const handleNewThing = async (bookTitle, bookAuthor, bookImage, bookFile) => {
+  const imageRef = ref(storage, `uploads/images/${Date.now()}-${bookTitle}`);
+  const uploadResultImg = await uploadBytes(imageRef, bookImage);
+
+  const fileRef = ref(storage, `uploads/files/${Date.now()}-${bookTitle}`);
+  const uploadResultPdf = await uploadBytes(fileRef, bookFile);
+
+  const today = new Date();
+
+  const added = await addDoc(collection(firestore, 'books'), {"title" : bookTitle, "author" : bookAuthor, "cover" : uploadResultImg.ref.fullPath, "file" : uploadResultPdf.ref.fullPath, "time" : today.toDateString()});
+  console.log(added);
 }

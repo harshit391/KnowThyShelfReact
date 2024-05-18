@@ -1,12 +1,8 @@
 import React from "react";
 import Book2 from './Book2'
+import { random } from "fontawesome";
 
-
-import comic from "/images/comic.jpg";
-import thriller from "/images/thriller.jpg";
-import fiction from "/images/fiction.jpg";
-
-const Middle = ({books}) => {
+const Middle = ({books, set}) => {
     return (
         <div className="middle-section">
             <div className="updates">
@@ -19,9 +15,7 @@ const Middle = ({books}) => {
                 </div>
                 
                 <div className="books-updates">
-                    <Book2 item={books[0]}/>
-                    <Book2 item={books[1]}/>
-                    <Book2 item={books[2]}/>
+                    {set.map((book) => <Book2 id={book.id} key={book.id} {...book.data()}/>)}
                 </div>
             </div>
         </div>
