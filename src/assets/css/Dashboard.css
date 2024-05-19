@@ -390,7 +390,7 @@ ul li a:hover {
 .left-image img {
     height: 180px;
     width: 10rem;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .book-info {
@@ -477,7 +477,7 @@ ul li a:hover {
     width: 11rem;
     min-height: 12rem;
     max-height: 12rem;
-    object-fit: cover;
+    object-fit: contain;
     margin-bottom: 1.25rem;
 }
 
