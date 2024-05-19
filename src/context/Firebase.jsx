@@ -120,7 +120,7 @@ export const FirebaseProvider = (props) => {
     console.log("UserBooks Actuall :- ", userBooks);
     const res = userBooks.docs.map((doc) => doc.data());
     console.log("Res:-", res);
-    return res;
+    return userBooks;
   }
 
   const isLoggedIn = user ? true : false;

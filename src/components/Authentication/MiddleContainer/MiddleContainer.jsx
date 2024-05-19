@@ -1,20 +1,7 @@
 // MiddleContainer.js
 import React, { useState ,useEffect} from 'react';
-import profilePic from '../Books/sungjinwoo.jpg';
-// import {imageDb} from "../../../assets/scripts/firebase"
 import {getAuth} from "firebase/auth"
 import {app,useAuth,upload} from "../../../assets/scripts/firebase"
-import {ref,uploadBytesResumable,getDownloadURL} from "firebase/storage"
-import book1 from '../Books/1.jpg';
-import book2 from '../Books/2.jpg';
-import book3 from '../Books/3.jpg';
-import book4 from '../Books/4.jpg';
-import book5 from '../Books/5.jpg';
-import book6 from '../Books/6.jpg';
-import book7 from '../Books/7.jpg';
-import book8 from '../Books/8.jpg';
-import book9 from '../Books/9.jpg';
-import book10 from '../Books/10.jpg';
 import Calender from './Calender/Calender';
 import './MiddleContainer.css';
 import Published from './Calender/Published';

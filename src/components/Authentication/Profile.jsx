@@ -20,7 +20,7 @@ const Profile = () => {
         onAuthStateChanged(auth,(user)=>{
           if(user){
             setUser(user);
-            firebase.listAllBooks().then(items => {
+            firebase.listAllUserBooks(user.uid).then(items => {
               console.log("This Works");
               setBookSet(items.docs);
             });
@@ -34,12 +34,11 @@ const Profile = () => {
         
 
       if(user!=null){
+        console.log("Bookset :- ", bookSet);
 
         if (bookSet.length === 0) {
           return <div>Loading...</div>
-        }
-        else {
-        console.log("Bookset :- ", bookSet);
+        } else {
   return (
     
     <div>
