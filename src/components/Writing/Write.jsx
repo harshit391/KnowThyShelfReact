@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { useFirebase } from '../../context/Firebase';
 
+
 const Write = ({goback}) => {
   const firebase = useFirebase();
   const [title, setTitle] = useState('');
@@ -17,6 +18,7 @@ const Write = ({goback}) => {
   const [uploadImg, setuploadImg] = useState(false);
   const [uploadStatus, setUploadStatus] = useState('Upload PDF File');
   const [bookDesc, setBookDesc] = useState('');
+  const [genre, setGenre] = useState('');
 
   const handleStoryChange = (e) => {
     setStory(e.target.value);
@@ -66,6 +68,11 @@ const Write = ({goback}) => {
     alert("Pdf File Uploaded Successfully");
   }
 
+  const handleGenreChange = (e) => {
+    e.preventDefault();
+    setGenre(e.target.value);
+  }
+
   let str = "/";
 
   if (goback) {
@@ -78,12 +85,15 @@ const Write = ({goback}) => {
     if (title === '') {
       alert("Please enter the title of the book");
       return;
-    } else if (author === '') {
-      alert("Please enter the author of the book");
-      return;
     }
     else if (uploadPdf) {
-      await firebase.handleCreateNewListing(title, author, bookCover, bookFile, bookDesc);
+      if (author === '') {
+        setAuthor('Anonymous');
+      }
+      if (genre === '') {
+        setGenre('Undefined');
+      }
+      await firebase.handleCreateNewListing(title, author, bookCover, bookFile, bookDesc, genre);
       alert("Book Published successfully!");
       return;
     } else {
@@ -107,7 +117,10 @@ const Write = ({goback}) => {
             <div className="title-input">
               <input type="text" placeholder='Enter Book Title' className='enterTitle' value={title} onChange={handleTitleChange} />
               <textarea className='story-input' placeholder='Book Description' value={story} onChange={handleStoryChange} />
+              <div className="extra-things">
               <input type="text" placeholder='Enter Author Name' className='enterAuthor' value={author} onChange={handleAuthorChange} />
+              <input type="text" placeholder='Enter Genre Name' className='enterAuthor' value={genre} onChange={handleGenreChange} />
+              </div>
               <div className="write-buttons">
                 <label htmlFor="file-input" className='custom-file'>Upload Image</label>
                 <input id="file-input" type="file" onChange={handleImageChange} style={{display: "none"}}/>

@@ -17,10 +17,13 @@ import book9 from '../Books/9.jpg';
 import book10 from '../Books/10.jpg';
 import Calender from './Calender/Calender';
 import './MiddleContainer.css';
+import Published from './Calender/Published';
 
 const auth=getAuth(app);
 
-const MiddleContainer = ({ username }) => {
+const MiddleContainer = (set) => {
+
+  console.log("Recieved Set: ",set)
   const currentUser=useAuth();
   const [photo,setPhoto]=useState(null);
   const [loading,setLoading]=useState(false);
@@ -50,7 +53,7 @@ const MiddleContainer = ({ username }) => {
         <img src={photoURL} alt="Profile" />
         </div>
         <div className="imageName">
-          <h1>{username||'Sung Jin Woo'}</h1>
+          <h1>{set.username||'Sung Jin Woo'}</h1>
         </div>
         <div className="readBooks">
           <div>Books Read: 15</div>
@@ -69,69 +72,10 @@ const MiddleContainer = ({ username }) => {
      
       <section className="continue">
         <div className="continue-heading">
-          <h2>Current Readings</h2>
+          <h2>Your Books</h2>
         </div>
         <div className="continue-container">
-          <div className="booksContinued">
-            <img src={book1} alt="Book 1" />
-            <div className="progress">
-              <div className="progress-value pX" style={{ '--percentage': '40%' }}></div>
-            </div>
-          </div>
-          <div className="booksContinued">
-            <img src={book2} alt="Book 2" />
-            <div className="progress">
-              <div className="progress-value pX" style={{ '--percentage': '40%' }}></div>
-            </div>
-          </div>
-          <div className="booksContinued">
-            <img src={book3} alt="Book 3" />
-            <div className="progress">
-              <div className="progress-value pX" style={{ '--percentage': '40%' }}></div>
-            </div>
-          </div>
-          <div className="booksContinued">
-            <img src={book4} alt="Book 4" />
-            <div className="progress">
-              <div className="progress-value pX" style={{ '--percentage': '40%' }}></div>
-            </div>
-          </div>
-          <div className="booksContinued">
-            <img src={book5} alt="Book 5" />
-            <div className="progress">
-              <div className="progress-value pX" style={{ '--percentage': '40%' }}></div>
-            </div>
-          </div>
-          <div className="booksContinued">
-            <img src={book6} alt="Book 6" />
-            <div className="progress">
-              <div className="progress-value pX" style={{ '--percentage': '40%' }}></div>
-            </div>
-          </div>
-          <div className="booksContinued">
-            <img src={book7} alt="Book 7" />
-            <div className="progress">
-              <div className="progress-value pX" style={{ '--percentage': '40%' }}></div>
-            </div>
-          </div>
-          <div className="booksContinued">
-            <img src={book8} alt="Book 8" />
-            <div className="progress">
-              <div className="progress-value pX" style={{ '--percentage': '40%' }}></div>
-            </div>
-          </div>
-          <div className="booksContinued">
-            <img src={book9} alt="Book 9" />
-            <div className="progress">
-              <div className="progress-value pX" style={{ '--percentage': '40%' }}></div>
-            </div>
-          </div>
-          <div className="booksContinued">
-            <img src={book10} alt="Book 10" />
-            <div className="progress">
-              <div className="progress-value pX" style={{ '--percentage': '40%' }}></div>
-            </div>
-          </div>
+          {set.books.map((item) => <Published id={item.id} key={item.id} {...item.data()}/>)}
         </div>
       </section>
       <div className="lastContainer">

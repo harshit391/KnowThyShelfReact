@@ -63,13 +63,17 @@ export const FirebaseProvider = (props) => {
 
   const signinWithGoogle = () => signInWithPopup(firebaseAuth, googleProvider);
 
-  const handleCreateNewListing = async (bookTitle, bookAuthor, bookImage, bookFile, bookDesc) => {
+  const handleCreateNewListing = async (bookTitle, bookAuthor, bookImage, bookFile, bookDesc, genre) => {
     const imageRef = ref(storage, `uploads/images/${Date.now()}-${bookTitle}`);
     const uploadResultImg = await uploadBytes(imageRef, bookImage);
     let uploadImg = uploadResultImg.ref.fullPath;
 
     if (bookImage === null || bookImage === undefined || bookImage === "") {
-        uploadImg = "https://firebasestorage.googleapis.com/v0/b/knowthyshelf-41c1b.appspot.com/o/default%2Fsungjinwoo.jpg?alt=media&token=33c1de1d-773f-4b35-8849-ca5a7990808f";
+        uploadImg = "default/sungjinwoo.jpg";
+    }
+
+    if (genre === '') {
+        genre = "Not Specified";
     }
 
     const fileRef = ref(storage, `uploads/files/${Date.now()}-${bookTitle}`);
@@ -77,7 +81,7 @@ export const FirebaseProvider = (props) => {
 
     const today = new Date();
 
-    return await addDoc(collection(firestore, 'books'), {"title" : bookTitle, "author" : bookAuthor, "cover" : uploadImg, "file" : uploadResultPdf.ref.fullPath, "time" : today.toDateString(), "timestamp" : Date.now(), "info" : bookDesc});
+    return await addDoc(collection(firestore, 'books'), {"title" : bookTitle, "author" : bookAuthor, "cover" : uploadImg, "file" : uploadResultPdf.ref.fullPath, "time" : today.toDateString(), "timestamp" : Date.now(), "info" : bookDesc, "genre" : genre, "user" : user.uid});
     
   };
 
@@ -102,6 +106,23 @@ export const FirebaseProvider = (props) => {
     return result;
   }
 
+  const listAllUserBooks = async (currentUserId) => {
+    console.log("List All Books");
+    console.log("User Id :-", currentUserId);
+    const docs = collection(firestore, "books");
+
+    console.log("Docs :- ", docs);
+    const userBooksQuery = query(docs, where("user", '==', currentUserId));
+    console.log("UserBooks:-" ,userBooksQuery);
+
+    const userBooks = await getDocs(userBooksQuery);
+
+    console.log("UserBooks Actuall :- ", userBooks);
+    const res = userBooks.docs.map((doc) => doc.data());
+    console.log("Res:-", res);
+    return res;
+  }
+
   const isLoggedIn = user ? true : false;
 
   return (
@@ -112,6 +133,7 @@ export const FirebaseProvider = (props) => {
         singinUserWithEmailAndPass,
         handleCreateNewListing,
         listAllBooks,
+        listAllUserBooks,
         getImageURL,
         getBookDocByUrl,
         getBookById,

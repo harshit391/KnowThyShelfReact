@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 
 const Genre = ({set}) => {
-
+    console.log("GenreSet: " , set)
     return (
         <div className="love-read-container">
             <h5>Based on genres you love</h5>

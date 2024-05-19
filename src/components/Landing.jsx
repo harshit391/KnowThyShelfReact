@@ -3,6 +3,7 @@ import Carl from './carl'
 import Main from './Main'
 import ChooseYourPick from './ChooseYourPick'
 import HowKnowThyShelfWorks from './HowKnowThyShelfWorks'
+import MyBook from "./FlipBook"
 import '../App.css'
 
 
@@ -12,7 +13,8 @@ const Landing = () => {
       <Main/>
       <Carl/>
       <ChooseYourPick />
-      <HowKnowThyShelfWorks/>      
+      <HowKnowThyShelfWorks/>  
+      <MyBook/>    
     </div>
   )
 }

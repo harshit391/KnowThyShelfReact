@@ -14,7 +14,6 @@ const Reader = () => {
     
     const [book, setBook] = React.useState(null);
     const [searchParams] = useSearchParams();
-    const [bookDoc, setBookDoc] = React.useState(null);
 
     useEffect(() => {
         const id = searchParams.get('type');

@@ -6,7 +6,6 @@ import Genre from "./Genre";
 import Reading from "./Reading";
 import '../../assets/css/Dashboard.css'
 import { useEffect } from 'react';
-import Calender from './Calender/Calender';
 
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import {app} from "../../assets/scripts/firebase"

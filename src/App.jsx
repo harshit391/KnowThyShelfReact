@@ -10,8 +10,6 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Premium from './components/Premium';
 import Write from './components/Writing/Write';
 import Reader from './components/Reader/Reader';
-import MyBook from './components/FlipBook';
-// import PremiumPage from './components/Premium/PremiumSubscription';
 
 
 
@@ -32,7 +30,7 @@ const KnowThyShelf = () => {
         <Route path="/write" element={<Write/>}/>
         <Route path="/bookread" element={<Reader/>}/>
       </Routes>
-      <MyBook/>
+      
     </>
   );
 };
