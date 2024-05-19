@@ -39,28 +39,28 @@ const Browser = () => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          setUser(user);
-          console.log(user);
-        } else {
-          console.log("You are logged out");
-          setUser(null);
-        }
-      });
-
-        const btn = document.getElementById('search-other');
-        if (btn !== null) {
-            btn.addEventListener('click', () => {
-                setShowSearchResults(false);
-                setShowGenreGrid(true);
-            });
-        }
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+            setUser(user);
+            console.log(user);
+            } else {
+            console.log("You are logged out");
+            setUser(null);
+            }
+        });
+        
+        
     }, []);
 
     
 
     if (user) {
+        const btn = document.getElementById('search-other');
+        btn.addEventListener('click', () => {
+            setShowSearchResults(false);
+            setShowGenreGrid(true);
+        });
+        
     return (
         <div className='browser-bg'>
             <Header prev = 'browser'/>
