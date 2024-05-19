@@ -65,6 +65,7 @@ function LibraryComponent() {
   }, []);
 
     if (user) {
+        console.log("Horror :-", horrorBooks);
     return (
         <div>
             <Header prev='library'/>
@@ -89,7 +90,7 @@ function LibraryComponent() {
                             <h2>{book.volumeInfo.title || 'Untitled'}</h2>
                             <p>{book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Unknown Author'}</p>
                             <p>{book.volumeInfo.description ? book.volumeInfo.description.slice(0, 100) + '...' : 'No description available'}</p>
-                            <a href="#">Read More</a>
+                            <a href={book.volumeInfo.canonicalVolumeLink}>Read More</a>
                         </div>
                     ))}
                 </div>
@@ -106,7 +107,7 @@ function LibraryComponent() {
                             <h2>{book.volumeInfo.title || 'Untitled'}</h2>
                             <p>{book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Unknown Author'}</p>
                             <p>{book.volumeInfo.description ? book.volumeInfo.description.slice(0, 100) + '...' : 'No description available'}</p>
-                            <a href="#">Read More</a>
+                            <a href={book.volumeInfo.canonicalVolumeLink}>Read More</a>
                         </div>
                     ))}
                 </div>
@@ -123,7 +124,7 @@ function LibraryComponent() {
                             <h2>{book.volumeInfo.title || 'Untitled'}</h2>
                             <p>{book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Unknown Author'}</p>
                             <p>{book.volumeInfo.description ? book.volumeInfo.description.slice(0, 100) + '...' : 'No description available'}</p>
-                            <a href="#">Read More</a>
+                            <a href={book.volumeInfo.canonicalVolumeLink}>Read More</a>
                         </div>
                     ))}
                 </div>
@@ -140,7 +141,7 @@ function LibraryComponent() {
                             <h2>{book.volumeInfo.title || 'Untitled'}</h2>
                             <p>{book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Unknown Author'}</p>
                             <p>{book.volumeInfo.description ? book.volumeInfo.description.slice(0, 100) + '...' : 'No description available'}</p>
-                            <a href="#">Read More</a>
+                            <a href={book.volumeInfo.canonicalVolumeLink}>Read More</a>
                         </div>
                     ))}
                 </div>

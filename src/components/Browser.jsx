@@ -92,7 +92,7 @@ const Browser = () => {
                                     <h2>{book.volumeInfo.title}</h2>
                                     <p>{book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Unknown Author'}</p>
                                     <p>{book.volumeInfo.description ? book.volumeInfo.description.slice(0, 350) + '...' : 'No description available'}</p>
-                                    <a href="">Read More</a>
+                                    <a href={book.volumeInfo.canonicalVolumeLink}>Read More</a>
                                 </div>
                             </div>
                         ))}
