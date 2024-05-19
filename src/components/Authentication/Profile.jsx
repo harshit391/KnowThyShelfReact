@@ -5,6 +5,10 @@ import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import {app} from "../../assets/scripts/firebase"
 const auth=getAuth(app);
 
+const empty = {
+  title: "No books",
+
+}
 
 import "./Profile.css" 
 import Authentication from '../Authentication';
@@ -35,10 +39,6 @@ const Profile = () => {
 
       if(user!=null){
         console.log("Bookset :- ", bookSet);
-
-        if (bookSet.length === 0) {
-          return <div>Loading...</div>
-        } else {
   return (
     
     <div>
@@ -50,7 +50,7 @@ const Profile = () => {
       </div>
     </div>
     </div>
-  )}
+  )
 } else{
   return <Authentication/>
 }
