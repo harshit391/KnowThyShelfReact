@@ -48,6 +48,14 @@ const Browser = () => {
           setUser(null);
         }
       });
+
+        const btn = document.getElementById('search-other');
+        if (btn !== null) {
+            btn.addEventListener('click', () => {
+                setShowSearchResults(false);
+                setShowGenreGrid(true);
+            });
+        }
     }, []);
 
     
@@ -56,7 +64,7 @@ const Browser = () => {
     return (
         <div className='browser-bg'>
             <Header prev = 'browser'/>
-
+            
             <div className="browse-section">
                 <div className="search-content">
                     <form onSubmit={handleSearch}>
@@ -64,6 +72,11 @@ const Browser = () => {
                         <button type="submit">Search</button>
                     </form>
                 </div>
+            </div>
+
+
+            <div className='btn-container'>
+                <button id='search-other'>Search Any Other Genre</button>
             </div>
 
             {showGenreGrid && (

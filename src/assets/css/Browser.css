@@ -146,3 +146,24 @@
     color: rgb(251, 122, 251);
 }
 
+#search-other{
+    width: 20rem;
+    height: 2.5rem;
+    margin: 1.3rem;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    transition: all 0.5s ease;
+  }
+#search-other:hover{
+    background-color: white;
+    cursor: pointer;
+    scale: 1.1;
+  }
+
+  .btn-container{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
