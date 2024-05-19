@@ -483,6 +483,7 @@ ul li a:hover {
 .love-read-card img {
     width: 11rem;
     min-height: 12rem;
+    max-height: 12rem;
     object-fit: cover;
     margin-bottom: 1.25rem;
 }
@@ -500,6 +501,10 @@ ul li a:hover {
     color: #666;
     width: 15rem;
     height: 3rem;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .love-read-card button{

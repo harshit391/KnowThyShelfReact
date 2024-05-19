@@ -1,0 +1,41 @@
+.flip-book{
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+    align-items: center;
+    overflow-y: hidden;
+    max-height: 120vh;
+    background-color: #f46060;
+}
+
+.flip-book div{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.flip-book div img{
+    width: 350px;
+    height: 500px;
+}
+
+.flip-book button{
+    height: 500px;
+    width: 30px;
+    background: linear-gradient(to right, #333333, #555555);
+    transition: opacity 0.5s;
+}
+
+.prevBtn{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    opacity: 0;
+}
+
+.nextBtn{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    opacity: 0;
+}   
+
+.flip-book button:hover{
+    opacity: 0.5;
+}
