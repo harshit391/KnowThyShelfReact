@@ -21,7 +21,7 @@ const Card = (book) => {
             <h2>{book.title}</h2>
             <p>Author: {book.author}</p>
             <p>{book.info}</p>
-            <Link to={"/bookread?type=" + book.id}><button>Read Here</button></Link>
+            <Link to={"/bookread?type=" + book.id + "&prev=read"}><button>Read Here</button></Link>
         </div>
     )
 }

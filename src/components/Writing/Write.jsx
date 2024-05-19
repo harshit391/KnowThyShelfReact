@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './Write.css';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import { useFirebase } from '../../context/Firebase';
 
 
-const Write = ({goback}) => {
+const Write = () => {
   const firebase = useFirebase();
   const [title, setTitle] = useState('');
   const [story, setStory] = useState('');
@@ -19,6 +19,12 @@ const Write = ({goback}) => {
   const [uploadStatus, setUploadStatus] = useState('Upload PDF File');
   const [bookDesc, setBookDesc] = useState('');
   const [genre, setGenre] = useState('');
+
+  const [searchParams] = useSearchParams();
+  let goback = searchParams.get('prev');
+  if (goback === null) {
+    goback = '';
+  }
 
   const handleStoryChange = (e) => {
     setStory(e.target.value);
@@ -73,12 +79,6 @@ const Write = ({goback}) => {
     setGenre(e.target.value);
   }
 
-  let str = "/";
-
-  if (goback) {
-    str += goback;
-  }
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -107,6 +107,7 @@ const Write = ({goback}) => {
     <div className='write-body'>
       <div className="join-us main-buttons">
         <Link to="/authentication" className="joinbtn"><button type="button">Go to Profile</button></Link>
+        <Link to={"/" + goback} className="joinbtn"><button type="button">Go Back</button></Link>
       </div>
       <h1 className='write-head'>Writing, <span className='reimagined'>Reimagined</span></h1>
       <h4 className='write-head2'>With every stroke of the pen, worlds unfurl, characters breathe life, and stories weave themselves effortlessly into existence, born from the depths of imagination and the flow of inspired words.</h4>

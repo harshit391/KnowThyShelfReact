@@ -32,6 +32,7 @@ function SignInSignUpPage({user}) {
       })
       .catch((error) => {
         console.log("Error creating user:", error);
+        alert("Error creating user");
       });
       console.log(Username);
   };
@@ -46,6 +47,7 @@ function SignInSignUpPage({user}) {
       })
       .catch((err) => {
         console.log("Error", err.message);
+        alert("Invalid credentials");
       });
       console.log(Username);
   };

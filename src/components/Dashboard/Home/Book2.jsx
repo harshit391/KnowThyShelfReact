@@ -38,7 +38,7 @@ const Book2 = (item2) => {
 
                         </div>
                         <div className="want-to-read-btn">
-                            <Link to={"/bookread?type=" + item2.id}><button>Want to read</button></Link>
+                            <Link to={"/bookread?type=" + item2.id + "&prev=read"}><button>Want to read</button></Link>
                         </div>
                         <div className="info-par">
                             {bookInfo}

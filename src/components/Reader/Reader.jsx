@@ -23,10 +23,12 @@ const Reader = () => {
         });
     },[])
 
+    const prev = searchParams.get('prev');
+
     if (book) {
     return (
         <div className="book-reader-container">
-            <Details book={book}/>
+            <Details book={book} prev={prev}/>
             <MainBook bookpath={book} />
         </div>
     )
