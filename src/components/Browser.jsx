@@ -13,6 +13,15 @@ const Browser = () => {
     const [searchResults, setSearchResults] = useState([]);
     const [showSearchResults, setShowSearchResults] = useState(false);
     const [showGenreGrid, setShowGenreGrid] = useState(true);
+    
+    const handleGenreClicked = () => {
+        const btn = document.getElementById('search-other');
+        btn.addEventListener('click', () => {
+            setShowSearchResults(false);
+            setShowGenreGrid(true);
+        });
+    }
+    
 
     const handleSearch = async (event) => {
         event.preventDefault();
@@ -48,18 +57,12 @@ const Browser = () => {
             setUser(null);
             }
         });
-        
-        
     }, []);
 
     
 
     if (user) {
-        const btn = document.getElementById('search-other');
-        btn.addEventListener('click', () => {
-            setShowSearchResults(false);
-            setShowGenreGrid(true);
-        });
+
         
     return (
         <div className='browser-bg'>
@@ -76,7 +79,7 @@ const Browser = () => {
 
 
             <div className='btn-container'>
-                <button id='search-other'>Search Any Other Genre</button>
+                <button id='search-other' onClick={handleGenreClicked}>Search Any Other Genre</button>
             </div>
 
             {showGenreGrid && (

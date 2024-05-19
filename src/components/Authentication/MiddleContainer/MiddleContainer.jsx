@@ -37,7 +37,7 @@ const MiddleContainer = (set) => {
       <div style={{display: "flex"}}>
       <div className="profile_main block">
         <div className="imageMain">
-        <img src={photoURL} alt="Profile" />
+          <img src={photoURL} alt="Profile" />
         </div>
         <div className="imageName">
           <h1>{set.username||'Sung Jin Woo'}</h1>
