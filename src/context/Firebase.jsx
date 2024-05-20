@@ -125,6 +125,7 @@ export const FirebaseProvider = (props) => {
   }
 
   const deleteBook = async (id) => {
+    console.log("Delete Book");
     const docs = collection(firestore, "books");
     const docRef = doc(docs, id);
     const message = await deleteDoc(docRef).then(()=> {

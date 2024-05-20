@@ -18,11 +18,11 @@ const Published = (book) => {
         e.preventDefault();
         const result = confirm("Are you sure you want to unpublish this book?");
         if (!result) {
+            console.log("Unpublish Cancelled");
             return;
         }
         firebase.deleteBook(book.id);
         alert("Book Unpublished Successfully");
-        window.location.reload();
     }
 
 
