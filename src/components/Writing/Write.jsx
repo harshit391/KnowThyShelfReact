@@ -95,6 +95,7 @@ const Write = () => {
       }
       await firebase.handleCreateNewListing(title, author, bookCover, bookFile, bookDesc, genre);
       alert("Book Published successfully!");
+      window.location.reload();
       return;
     } else {
       alert("Please upload the PDF file");
