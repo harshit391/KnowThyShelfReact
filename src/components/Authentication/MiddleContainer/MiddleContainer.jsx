@@ -68,7 +68,7 @@ const MiddleContainer = (set) => {
       <div className="lastContainer">
                 <Calender/> 
             </div>
-    </div>
+      </div>
   );
 };
 

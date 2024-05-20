@@ -65,6 +65,7 @@ export async function upload(file, currentUser, setLoading) {
   
   setLoading(false);
   alert("Uploaded file!");
+  window.location.reload();
 }
 
 export const handleNewThing = async (bookTitle, bookAuthor, bookImage, bookFile, bookDesc) => {

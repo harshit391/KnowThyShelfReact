@@ -90,13 +90,13 @@
     flex-direction: column;
     justify-content: space-around;
     width: 40vw;
-    height: 60vh;
+    height: 80vh;
     background-color: white;
     border-radius: 4px;
 }
 
 .continue-heading {
-    height: 25%;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,7 +108,8 @@
 
 .continue-container {
     display: flex;
-    height: 120%;
+    height: 80vh;
+    align-items: center;
     border-radius: 4px;
     overflow-x: auto;
     overflow-y: hidden;

@@ -1,0 +1,6 @@
+.booksContinued button{
+    all: unset;
+    color: red;
+    display: flex;
+    padding: 1rem;
+}

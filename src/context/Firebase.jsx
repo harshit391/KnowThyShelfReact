@@ -17,6 +17,7 @@ import {
   doc,
   query,
   where,
+  deleteDoc,
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -123,6 +124,16 @@ export const FirebaseProvider = (props) => {
     return userBooks;
   }
 
+  const deleteBook = async (id) => {
+    const docs = collection(firestore, "books");
+    const docRef = doc(docs, id);
+    const message = await deleteDoc(docRef).then(()=> {
+      console.log("Document Deleted");
+    });
+    console.log(message);
+    return docRef;
+  }
+
   const isLoggedIn = user ? true : false;
 
   return (
@@ -134,6 +145,7 @@ export const FirebaseProvider = (props) => {
         handleCreateNewListing,
         listAllBooks,
         listAllUserBooks,
+        deleteBook,
         getImageURL,
         getBookDocByUrl,
         getBookById,
