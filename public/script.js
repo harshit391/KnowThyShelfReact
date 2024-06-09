@@ -31,14 +31,12 @@ const getZIndex = (array, index) => {
     Get Elements
 --------------------*/
 const carItems = document.querySelectorAll('.carousel-item'); // Get all carousel items
-console.log(carItems)
 const cursors = document.querySelectorAll('.cursor'); // Get all cursor elements (if any)
 
 /*--------------------
     Display Items
 --------------------*/
 const displayItems = (item, index, active, carItems2) => {
-  console.log(item, index, active);
   const zIndex = getZIndex([...carItems2], active)[index]; // Calculate the z-index for the current item
   item.style.setProperty('--zIndex', zIndex); // Set the --zIndex CSS variable for the item
   item.style.setProperty('--active', (index - active) / carItems2.length); // Set the --active CSS variable for the item

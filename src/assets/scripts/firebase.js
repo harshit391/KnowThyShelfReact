@@ -79,5 +79,4 @@ export const handleNewThing = async (bookTitle, bookAuthor, bookImage, bookFile,
   const today = new Date();
 
   const added = await addDoc(collection(firestore, 'books'), {"title" : bookTitle, "author" : bookAuthor, "cover" : uploadResultImg.ref.fullPath, "file" : uploadResultPdf.ref.fullPath, "time" : today.toDateString(), "desc": bookDesc});
-  console.log(added);
 }

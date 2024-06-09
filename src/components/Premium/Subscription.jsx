@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-import { app } from "../../assets/scripts/firebase";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { app } from "../../context/Firebase";
 const auth = getAuth(app);
 
 
@@ -14,9 +14,7 @@ const Subscription = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        console.log(user);
       } else {
-        console.log("You are logged out");
         setUser(null);
       }
     });

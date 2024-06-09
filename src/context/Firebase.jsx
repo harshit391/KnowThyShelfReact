@@ -46,6 +46,34 @@ const storage = getStorage(firebaseApp);
 
 const googleProvider = new GoogleAuthProvider();
 
+
+export function useAuth() {
+  const [currentUser, setCurrentUser] = useState();
+
+  useEffect(() => {
+    const unsub = onAuthStateChanged(firebaseAuth, user => setCurrentUser(user));
+    return unsub;
+  }, [])
+
+  return currentUser;
+}
+
+export async function upload(file, currentUser, setLoading) {
+  const fileRef = ref(storage, currentUser.uid + '.png');
+
+  setLoading(true);
+  
+  const snapshot = await uploadBytes(fileRef, file);
+  const photoURL = await getDownloadURL(fileRef);
+
+  updateProfile(currentUser, {photoURL});
+  
+  setLoading(false);
+  alert("Uploaded file!");
+  window.location.reload();
+}
+
+
 export const FirebaseProvider = (props) => {
   const [user, setUser] = useState(null);
 
@@ -98,7 +126,6 @@ export const FirebaseProvider = (props) => {
 
   const getImageURL = async (path) => {
     const result =  await getDownloadURL(ref(storage, path));
-    console.log(result);
     return result;
   };
 
@@ -108,30 +135,17 @@ export const FirebaseProvider = (props) => {
   }
 
   const listAllUserBooks = async (currentUserId) => {
-    console.log("List All Books");
-    console.log("User Id :-", currentUserId);
     const docs = collection(firestore, "books");
-
-    console.log("Docs :- ", docs);
     const userBooksQuery = query(docs, where("user", '==', currentUserId));
-    console.log("UserBooks:-" ,userBooksQuery);
-
     const userBooks = await getDocs(userBooksQuery);
-
-    console.log("UserBooks Actuall :- ", userBooks);
     const res = userBooks.docs.map((doc) => doc.data());
-    console.log("Res:-", res);
     return userBooks;
   }
 
   const deleteBook = async (id) => {
-    console.log("Delete Book");
     const docs = collection(firestore, "books");
     const docRef = doc(docs, id);
-    const message = await deleteDoc(docRef).then(()=> {
-      console.log("Document Deleted");
-    });
-    console.log(message);
+    const message = await deleteDoc(docRef);
     return docRef;
   }
 

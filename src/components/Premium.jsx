@@ -13,9 +13,6 @@ import { useSearchParams } from 'react-router-dom';
 const Premium = () => {
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type');
-
-
-  console.log(type);
   
     return (
         <div className='premium'>

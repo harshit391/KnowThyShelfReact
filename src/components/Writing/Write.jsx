@@ -51,8 +51,6 @@ const Write = () => {
       alert("Please upload a file");
       return;
     } 
-    console.log("File Changed");
-    console.log(e.target.files[0]);
     setuploadImg(true);
     setBookCover(e.target.files[0]);
     setBookImg(URL.createObjectURL(e.target.files[0]));

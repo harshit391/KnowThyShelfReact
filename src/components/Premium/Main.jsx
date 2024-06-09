@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-import { app } from "../../assets/scripts/firebase";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { app } from "../../context/Firebase";
 const auth = getAuth(app);
 
 const Main = ({goback}) => {
@@ -12,9 +12,7 @@ const Main = ({goback}) => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        console.log(user);
       } else {
-        console.log("You are logged out");
         setUser(null);
       }
     });
@@ -29,8 +27,6 @@ const Main = ({goback}) => {
   if (goback) {
     str += goback;
   }
-
-  console.log(str);
 
     return (
        

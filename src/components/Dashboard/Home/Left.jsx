@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Calender from "../Calender/Calender";
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-import {app} from "../../../assets/scripts/firebase";
+import {app} from "../../../context/Firebase";
 const auth=getAuth(app);
 
 const Left = () => {
@@ -15,7 +15,6 @@ const Left = () => {
            
           }
           else{
-            console.log("Your are logged out");
             setUser(null);
           }
         })
