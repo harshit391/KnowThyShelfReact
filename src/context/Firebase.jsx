@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 import {
   getFirestore,
@@ -24,22 +25,18 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDREvCGZZ54u4m_bWHl8b9T_hsz8V2S0zo",
-
-    authDomain: "knowthyshelf-41c1b.firebaseapp.com",
-  
-    projectId: "knowthyshelf-41c1b",
-  
-    storageBucket: "knowthyshelf-41c1b.appspot.com",
-  
-    messagingSenderId: "3336586441",
-  
-    appId: "1:3336586441:web:ef09a204ae5be815e5b918"
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID
 };
 
 export const useFirebase = () => useContext(FirebaseContext);
 
 export const firebaseApp = initializeApp(firebaseConfig);
+export const app = firebaseApp;
 const firebaseAuth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
 const storage = getStorage(firebaseApp);
@@ -59,6 +56,7 @@ export function useAuth() {
 }
 
 export async function upload(file, currentUser, setLoading) {
+  console.log(currentUser);
   const fileRef = ref(storage, currentUser.uid + '.png');
 
   setLoading(true);
@@ -71,6 +69,19 @@ export async function upload(file, currentUser, setLoading) {
   setLoading(false);
   alert("Uploaded file!");
   window.location.reload();
+}
+
+export const handleNewThing = async (bookTitle, bookAuthor, bookImage, bookFile, bookDesc) => {
+  const imageRef = ref(storage, `uploads/images/${Date.now()}-${bookTitle}`);
+
+  const uploadResultImg = await uploadBytes(imageRef, bookImage);
+
+  const fileRef = ref(storage, `uploads/files/${Date.now()}-${bookTitle}`);
+  const uploadResultPdf = await uploadBytes(fileRef, bookFile);
+
+  const today = new Date();
+
+  const added = await addDoc(collection(firestore, 'books'), {"title" : bookTitle, "author" : bookAuthor, "cover" : uploadResultImg.ref.fullPath, "file" : uploadResultPdf.ref.fullPath, "time" : today.toDateString(), "desc": bookDesc});
 }
 
 
