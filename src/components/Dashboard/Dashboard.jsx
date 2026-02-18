@@ -8,7 +8,7 @@ import '../../assets/css/Dashboard.css'
 import { useEffect } from 'react';
 
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-import {app} from "../../assets/scripts/firebase"
+import {app} from "../../context/Firebase"
 import Authentication from '../Authentication';
 
 import { useFirebase } from '../../context/Firebase';
@@ -55,7 +55,6 @@ useEffect(()=>{
         
         }
         else{
-        console.log("Your are logged out");
         setUser(null);
         }
     })

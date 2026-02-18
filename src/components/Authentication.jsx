@@ -3,7 +3,7 @@ import Page from './Authentication/Page';
 import '../assets/css/Authentication.css'
 import Profile from './Authentication/Profile';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-import { app } from "../assets/scripts/firebase";
+import {app} from "../context/Firebase"
 import { useSearchParams } from 'react-router-dom';
 import Write from './Writing/Write';
 import Dashboard from './Dashboard/Dashboard';
@@ -18,9 +18,7 @@ const Authentication = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        console.log(user);
       } else {
-        console.log("You are logged out");
         setUser(null);
       }
     });

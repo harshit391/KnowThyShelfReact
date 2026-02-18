@@ -1,10 +1,6 @@
 import React,{useState,useEffect} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'  ;
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-// import {imageDb} from "../../../assets/scripts/firebase"
-import {app,useAuth,upload} from "../../../assets/scripts/firebase"
-import {ref,uploadBytesResumable,getDownloadURL} from "firebase/storage"
+import { getAuth, signOut } from 'firebase/auth';
+import {app,useAuth} from "../../../context/Firebase"
 
 import './header.css'
 import logo from './logo.jpg' 
@@ -16,8 +12,6 @@ const auth=getAuth(app);
 const Header = ({prev}) => {
 
   const currentUser=useAuth();
-  const [photo,setPhoto]=useState(null);
-  const [loading,setLoading]=useState(false);
   const [photoURL,setPhotoURL]=useState('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTEw_De963pYsWjudWc56nI-ervEsZi6EOt9Qbcvs5Ww&s');
   useEffect(()=>{
     if(currentUser?.photoURL){

@@ -4,7 +4,7 @@ import Header from './Authentication/Header/Header';
 
 
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-import {app} from "../assets/scripts/firebase"
+import { app } from "../context/Firebase";
 import Authentication from '../components/Authentication';
 const auth=getAuth(app);
 
@@ -51,9 +51,7 @@ const Browser = () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
             setUser(user);
-            console.log(user);
             } else {
-            console.log("You are logged out");
             setUser(null);
             }
         });

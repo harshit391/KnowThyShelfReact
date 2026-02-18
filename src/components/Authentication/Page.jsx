@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup,updateProfile,signOut} from "firebase/auth"
-import {app} from "../../assets/scripts/firebase"
 
 import { firebaseApp } from '../../context/Firebase';
 
@@ -23,33 +22,22 @@ function SignInSignUpPage({user}) {
         updateProfile(userCredential.user, {
           displayName: Username,
         })
-          .then(() => {
-            console.log("User profile updated successfully");
-          })
-          .catch((error) => {
-            console.log("Error updating user profile:", error);
-          });
       })
       .catch((error) => {
-        console.log("Error creating user:", error);
         alert("Error creating user");
       });
-      console.log(Username);
   };
   const signinUser = () => {
     signInWithEmailAndPassword(auth, inemail, inpassword)
       .then((userCredential) => {
-        console.log("Signin success");
         const user = userCredential.user;
         const username = user.displayName;
         // Store the username in a state variable or component property
         setUsername(username);
       })
       .catch((err) => {
-        console.log("Error", err.message);
         alert("Invalid credentials");
       });
-      console.log(Username);
   };
   
   const signinWithGoogle=()=>{

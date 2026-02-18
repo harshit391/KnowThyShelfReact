@@ -3,8 +3,8 @@ import '../../src/assets/css/Library.css';
 import Header from './Authentication/Header/Header'
 import '../App.css'
 
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-import {app} from "../assets/scripts/firebase"
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import {app} from "../context/Firebase"
 import Authentication from '../components/Authentication';
 const auth=getAuth(app);
 
@@ -23,7 +23,6 @@ function LibraryComponent() {
                 const data = await response.json();
                 return data.items;
             } catch (error) {
-                console.error('Error fetching books:', error);
                 return [];
             }
         };
@@ -46,26 +45,19 @@ function LibraryComponent() {
         fetchAndSetBooks();
     }, []); // No dependencies needed here
 
-    useEffect(() => {
-        console.log('Horror Books:', horrorBooks);
-    }, [horrorBooks]); 
-
     const [user, setUser] = useState(null);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        console.log(user);
       } else {
-        console.log("You are logged out");
         setUser(null);
       }
     });
   }, []);
 
     if (user) {
-        console.log("Horror :-", horrorBooks);
     return (
         <div>
             <Header prev='library'/>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from './Header/Header';
 import MiddleContainer from './MiddleContainer/MiddleContainer';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
-import {app} from "../../assets/scripts/firebase"
+import {app} from "../../context/Firebase"
 const auth=getAuth(app);
 
 const empty = {
@@ -25,12 +25,10 @@ const Profile = () => {
           if(user){
             setUser(user);
             firebase.listAllUserBooks(user.uid).then(items => {
-              console.log("This Works");
               setBookSet(items.docs);
             });
           }
           else{
-            console.log("Your are logged out");
             setUser(null);
           }
         })
@@ -38,7 +36,6 @@ const Profile = () => {
         
 
       if(user!=null){
-        console.log("Bookset :- ", bookSet);
   return (
     
     <div>

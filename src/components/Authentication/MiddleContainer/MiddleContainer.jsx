@@ -1,7 +1,7 @@
 // MiddleContainer.js
 import React, { useState ,useEffect} from 'react';
 import {getAuth} from "firebase/auth"
-import {app,useAuth,upload} from "../../../assets/scripts/firebase"
+import {app,useAuth,upload} from "../../../context/Firebase"
 import Calender from './Calender/Calender';
 import './MiddleContainer.css';
 import Published from './Calender/Published';
@@ -9,8 +9,6 @@ import Published from './Calender/Published';
 const auth=getAuth(app);
 
 const MiddleContainer = (set) => {
-
-  console.log("Recieved Set: ",set)
   const currentUser=useAuth();
   const [photo,setPhoto]=useState(null);
   const [loading,setLoading]=useState(false);
