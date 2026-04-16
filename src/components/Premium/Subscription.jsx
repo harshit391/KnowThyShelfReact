@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { app } from "../../context/Firebase";
@@ -11,18 +11,17 @@ const Subscription = () => {
   const [logged, setLogged] = useState("#container123");
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsub = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        setLogged(import.meta.env.VITE_STRIPE_LINK || "#");
       } else {
         setUser(null);
+        setLogged("#container123");
       }
     });
-
-    if (user !== null) {
-      setLogged("https://buy.stripe.com/test_bIYg1X4ae32SfcY7ss");
-    }
-  });
+    return unsub;
+  }, []);
 
     return (
   <div className="container-fluid py-5" style={{background: "linear-gradient(135deg, #f46060, #f24848)"}}>
@@ -52,7 +51,7 @@ const Subscription = () => {
               </svg> No AudioBooks</li>
             </ul>
             <div className="card-body text-center">
-            <a href="/authentication"><button className="btn btn-outline-primary btn-lg" style={{borderRadius:"30px"}}>Select</button></a>
+            <Link to="/authentication"><button className="btn btn-outline-primary btn-lg" style={{borderRadius:"30px"}}>Select</button></Link>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import Book2 from './Book2'
 
 const Middle = ({set}) => {
-    set.sort((a, b) => b.data().timestamp - a.data().timestamp);
+    const sorted = [...set].sort((a, b) => b.data().timestamp - a.data().timestamp);
     return (
         <div className="middle-section">
             <div className="updates">
@@ -15,7 +15,7 @@ const Middle = ({set}) => {
                 </div>
                 
                 <div className="books-updates">
-                    {set.slice(0, 3).map((book) => <Book2 id={book.id} key={book.id} {...book.data()}/>)}
+                    {sorted.slice(0, 3).map((book) => <Book2 id={book.id} key={book.id} {...book.data()}/>)}
                 </div>
             </div>
         </div>

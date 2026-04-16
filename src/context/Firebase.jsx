@@ -56,43 +56,28 @@ export function useAuth() {
 }
 
 export async function upload(file, currentUser, setLoading) {
-  console.log(currentUser);
   const fileRef = ref(storage, currentUser.uid + '.png');
 
   setLoading(true);
-  
+
   const snapshot = await uploadBytes(fileRef, file);
   const photoURL = await getDownloadURL(fileRef);
 
-  updateProfile(currentUser, {photoURL});
-  
+  await updateProfile(currentUser, {photoURL});
+
   setLoading(false);
   alert("Uploaded file!");
-  window.location.reload();
 }
-
-export const handleNewThing = async (bookTitle, bookAuthor, bookImage, bookFile, bookDesc) => {
-  const imageRef = ref(storage, `uploads/images/${Date.now()}-${bookTitle}`);
-
-  const uploadResultImg = await uploadBytes(imageRef, bookImage);
-
-  const fileRef = ref(storage, `uploads/files/${Date.now()}-${bookTitle}`);
-  const uploadResultPdf = await uploadBytes(fileRef, bookFile);
-
-  const today = new Date();
-
-  const added = await addDoc(collection(firestore, 'books'), {"title" : bookTitle, "author" : bookAuthor, "cover" : uploadResultImg.ref.fullPath, "file" : uploadResultPdf.ref.fullPath, "time" : today.toDateString(), "desc": bookDesc});
-}
-
 
 export const FirebaseProvider = (props) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    onAuthStateChanged(firebaseAuth, (user) => {
+    const unsub = onAuthStateChanged(firebaseAuth, (user) => {
       if (user) setUser(user);
       else setUser(null);
     });
+    return unsub;
   }, []);
 
   const signupUserWithEmailAndPassword = (email, password) =>
@@ -104,12 +89,12 @@ export const FirebaseProvider = (props) => {
   const signinWithGoogle = () => signInWithPopup(firebaseAuth, googleProvider);
 
   const handleCreateNewListing = async (bookTitle, bookAuthor, bookImage, bookFile, bookDesc, genre) => {
-    const imageRef = ref(storage, `uploads/images/${Date.now()}-${bookTitle}`);
-    const uploadResultImg = await uploadBytes(imageRef, bookImage);
-    let uploadImg = uploadResultImg.ref.fullPath;
+    let uploadImg = "default/sungjinwoo.jpg";
 
-    if (bookImage === null || bookImage === undefined || bookImage === "") {
-        uploadImg = "default/sungjinwoo.jpg";
+    if (bookImage !== null && bookImage !== undefined && bookImage !== "") {
+        const imageRef = ref(storage, `uploads/images/${Date.now()}-${bookTitle}`);
+        const uploadResultImg = await uploadBytes(imageRef, bookImage);
+        uploadImg = uploadResultImg.ref.fullPath;
     }
 
     if (genre === '') {
@@ -122,7 +107,7 @@ export const FirebaseProvider = (props) => {
     const today = new Date();
 
     return await addDoc(collection(firestore, 'books'), {"title" : bookTitle, "author" : bookAuthor, "cover" : uploadImg, "file" : uploadResultPdf.ref.fullPath, "time" : today.toDateString(), "timestamp" : Date.now(), "info" : bookDesc, "genre" : genre, "user" : user.uid});
-    
+
   };
 
   const listAllBooks = () => {
@@ -149,7 +134,6 @@ export const FirebaseProvider = (props) => {
     const docs = collection(firestore, "books");
     const userBooksQuery = query(docs, where("user", '==', currentUserId));
     const userBooks = await getDocs(userBooksQuery);
-    const res = userBooks.docs.map((doc) => doc.data());
     return userBooks;
   }
 

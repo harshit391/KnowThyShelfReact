@@ -13,7 +13,7 @@ const Book2 = (item2) => {
         firebase.getImageURL(item2.cover).then((url) => {
             setUrl(url);
         });
-    },[])
+    },[item2.cover])
 
     const title = item2.title;  
     const author = item2.author;

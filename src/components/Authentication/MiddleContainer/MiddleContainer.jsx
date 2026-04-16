@@ -8,7 +8,7 @@ import Published from './Calender/Published';
 
 const auth=getAuth(app);
 
-const MiddleContainer = (set) => {
+const MiddleContainer = ({username, books}) => {
   const currentUser=useAuth();
   const [photo,setPhoto]=useState(null);
   const [loading,setLoading]=useState(false);
@@ -38,7 +38,7 @@ const MiddleContainer = (set) => {
           <img src={photoURL} alt="Profile" />
         </div>
         <div className="imageName">
-          <h1>{set.username||'Sung Jin Woo'}</h1>
+          <h1>{username||'Sung Jin Woo'}</h1>
         </div>
         <div className="readBooks">
           <div>Books Read: 15</div>
@@ -60,7 +60,7 @@ const MiddleContainer = (set) => {
           <h2>Your Books</h2>
         </div>
         <div className="continue-container">
-          {set.books.map((item) => <Published id={item.id} key={item.id} {...item.data()}/>)}
+          {books.map((item) => <Published id={item.id} key={item.id} {...item.data()}/>)}
         </div>
       </section>
       <div className="lastContainer">

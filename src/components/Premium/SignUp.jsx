@@ -14,18 +14,17 @@ const SignUp = () => {
   const [logged, setLogged] = useState(false);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsub = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        setLogged(true);
       } else {
         setUser(null);
+        setLogged(false);
       }
     });
-
-    if (user !== null) {
-      setLogged(true);
-    }
-  });
+    return unsub;
+  }, []);
 
 
     if (!logged) {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Page from './Authentication/Page';
 import '../assets/css/Authentication.css'
 import Profile from './Authentication/Profile';
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import {app} from "../context/Firebase"
 import { useSearchParams } from 'react-router-dom';
 import Write from './Writing/Write';
@@ -15,25 +15,15 @@ const Authentication = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsub = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       } else {
         setUser(null);
       }
     });
+    return unsub;
   }, []);
-
-  const AuthComp = () => {
-    switch (type) {
-      case 'write':
-      return <Write />;
-      case 'read':
-      return <Dashboard/>;
-      default:
-        return <Profile />;
-    }
-  };
 
   if (user === null) {
     return (
@@ -43,18 +33,24 @@ const Authentication = () => {
     );
   }
 
-  
-
-  if (user !== null) {
-    return (
-      <div>
-        <AuthComp />
-      </div>
-    );
-    
+  let content;
+  switch (type) {
+    case 'write':
+      content = <Write />;
+      break;
+    case 'read':
+      content = <Dashboard />;
+      break;
+    default:
+      content = <Profile />;
   }
 
-  
+  return (
+    <div>
+      {content}
+    </div>
+  );
+
 };
 
 export default Authentication;

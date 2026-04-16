@@ -26,6 +26,7 @@ const KnowThyShelf = () => {
         <Route path="/premium" element={<Premium/>}/>
         <Route path="/write" element={<Write/>}/>
         <Route path="/bookread" element={<Reader/>}/>
+        <Route path="*" element={<div style={{textAlign:'center',marginTop:'100px'}}><h1>404 - Page Not Found</h1><a href="/">Go Home</a></div>}/>
       </Routes>
     </>
   );

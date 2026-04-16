@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from './Header/Header';
 import MiddleContainer from './MiddleContainer/MiddleContainer';
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import {app} from "../../context/Firebase"
 const auth=getAuth(app);
 
@@ -21,7 +21,7 @@ const Profile = () => {
     const [user,setUser]=useState(null);
 
     useEffect(()=>{
-        onAuthStateChanged(auth,(user)=>{
+        const unsub = onAuthStateChanged(auth,(user)=>{
           if(user){
             setUser(user);
             firebase.listAllUserBooks(user.uid).then(items => {
@@ -31,7 +31,8 @@ const Profile = () => {
           else{
             setUser(null);
           }
-        })
+        });
+        return unsub;
       },[])
         
 

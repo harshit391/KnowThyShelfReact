@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './Write.css';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 
 import { useFirebase } from '../../context/Firebase';
 
 
 const Write = () => {
   const firebase = useFirebase();
+  const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [story, setStory] = useState('');
   const [author, setAuthor] = useState('');
@@ -85,15 +86,9 @@ const Write = () => {
       return;
     }
     else if (uploadPdf) {
-      if (author === '') {
-        setAuthor('Anonymous');
-      }
-      if (genre === '') {
-        setGenre('Undefined');
-      }
-      await firebase.handleCreateNewListing(title, author, bookCover, bookFile, bookDesc, genre);
+      await firebase.handleCreateNewListing(title, author || 'Anonymous', bookCover, bookFile, bookDesc, genre || 'Undefined');
       alert("Book Published successfully!");
-      window.location.reload();
+      navigate(0);
       return;
     } else {
       alert("Please upload the PDF file");

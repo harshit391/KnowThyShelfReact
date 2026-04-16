@@ -14,7 +14,7 @@ const Details = ({book, prev}) => {
         firebase.getImageURL(book.cover).then((url) => {
             setUrl(url);
         });
-    },[])
+    },[book.cover])
     return (
         <div className="details-section">
 

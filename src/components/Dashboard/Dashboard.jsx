@@ -7,7 +7,7 @@ import Reading from "./Reading";
 import '../../assets/css/Dashboard.css'
 import { useEffect } from 'react';
 
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import {app} from "../../context/Firebase"
 import Authentication from '../Authentication';
 
@@ -28,36 +28,21 @@ const Dashboard = () => {
         firebase.listAllBooks().then(items => setBookSet(items.docs));
 
 
-        let searchBarIcon = document.querySelector('.profile .fas');
-        if (searchBarIcon === null) searchBarIcon = document.querySelector('.profilePic .fas');
-        if (searchBarIcon === null) {
-            return;
-        }
-
-        const searchBar = document.querySelector('.search-bar');
-
-        searchBarIcon.addEventListener('click', () => {
-            if (searchBar.style.visibility == 'hidden') {
-                searchBar.style.visibility = 'visible';
-            } else {
-                searchBar.style.visibility = 'hidden';
-            }
-        });
     },[])
 
     
 const [user,setUser]=useState(null);
 
 useEffect(()=>{
-    onAuthStateChanged(auth,(user)=>{
+    const unsub = onAuthStateChanged(auth,(user)=>{
         if(user){
         setUser(user);
-        
         }
         else{
         setUser(null);
         }
-    })
+    });
+    return unsub;
     },[])
 
     if (user) {

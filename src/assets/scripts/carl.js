@@ -28,10 +28,6 @@ const getZIndex = (array, index) => {
 }
 
 /*--------------------
-    Get Elements
-
-
-/*--------------------
     Display Items
 --------------------*/
 const displayItems = (item, index, active, carItems2) => {

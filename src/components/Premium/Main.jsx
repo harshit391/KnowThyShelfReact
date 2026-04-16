@@ -9,18 +9,17 @@ const Main = ({goback}) => {
   const [logged, setLogged] = useState("Join Us");
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsub = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        setLogged("Go to Profile");
       } else {
         setUser(null);
+        setLogged("Join Us");
       }
     });
-
-    if (user !== null) {
-      setLogged("Go to Profile");
-    }
-  });   
+    return unsub;
+  }, []);
 
   let str = "/";
 
@@ -42,8 +41,8 @@ const Main = ({goback}) => {
         <p style={{fontSize:"16px", marginTop: "25px"}}>Indulge in the warmth of premium reading - where every page feels like a snug embrace. Our exclusive membership is your passport to a haven of stories, relaxation, and literary bliss..
           Unlock a realm where every page is an adventure waiting to unfold. Embark on a literary journey like never before!</p>
         <div className="main-buttons">
-            <a href="/authentication/?type=read"><button style={{fontSize: "1rem"}}>Start Reading</button></a>
-            <a href="/authentication/?type=write"><button style={{fontSize: "1rem"}}>Start Writing</button></a>
+            <Link to="/authentication/?type=read"><button style={{fontSize: "1rem"}}>Start Reading</button></Link>
+            <Link to="/authentication/?type=write"><button style={{fontSize: "1rem"}}>Start Writing</button></Link>
         </div>
         
     </div>

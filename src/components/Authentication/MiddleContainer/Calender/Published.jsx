@@ -12,7 +12,7 @@ const Published = (book) => {
         firebase.getImageURL(book.cover).then((url) => {
             setUrl(url);
         });
-    },[])
+    },[book.cover])
 
     const handleDelete = (e) => {
         e.preventDefault();

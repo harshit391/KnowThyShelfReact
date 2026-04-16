@@ -12,7 +12,7 @@ const Card = (book) => {
         firebase.getImageURL(book.cover).then((url) => {
             setUrl(url);
         });
-    },[])
+    },[book.cover])
 
 
     return (

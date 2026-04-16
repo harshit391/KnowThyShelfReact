@@ -1,11 +1,19 @@
-import React , {useEffect} from "react";
+import React, { useEffect, useRef } from "react";
 import Slide from "./ChooseYourPick/Slide";
 import Book from "./ChooseYourPick/Book";
-
+import Swiper from "swiper";
+import { Autoplay, EffectCube, Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-cube";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const ChooseYourPick = () => {
+    const swiperRef = useRef(null);
+
     useEffect(() => {
-        new Swiper('.sample-slider', {
+        swiperRef.current = new Swiper('.sample-slider', {
+          modules: [Autoplay, EffectCube, Pagination, Navigation],
           loop: true,
           effect: "cube",
           cubeEffect: {},
@@ -21,7 +29,13 @@ const ChooseYourPick = () => {
               nextEl: ".swiper-button-next",
               prevEl: ".swiper-button-prev",
           },
-      })
+        });
+
+        return () => {
+          if (swiperRef.current) {
+            swiperRef.current.destroy(true, true);
+          }
+        };
       },[])
 
 

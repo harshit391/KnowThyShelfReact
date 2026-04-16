@@ -3,7 +3,7 @@ import '../assets/css/Browser.css'
 import Header from './Authentication/Header/Header';
 
 
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { app } from "../context/Firebase";
 import Authentication from '../components/Authentication';
 const auth=getAuth(app);
@@ -15,11 +15,8 @@ const Browser = () => {
     const [showGenreGrid, setShowGenreGrid] = useState(true);
     
     const handleGenreClicked = () => {
-        const btn = document.getElementById('search-other');
-        btn.addEventListener('click', () => {
-            setShowSearchResults(false);
-            setShowGenreGrid(true);
-        });
+        setShowSearchResults(false);
+        setShowGenreGrid(true);
     }
     
 
@@ -33,7 +30,7 @@ const Browser = () => {
     };
 
     const fetchBooks = async (search) => {
-        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}`);
+        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(search)}`);
         const data = await response.json();
         return data.items || [];
     };
@@ -48,13 +45,14 @@ const Browser = () => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsub = onAuthStateChanged(auth, (user) => {
             if (user) {
             setUser(user);
             } else {
             setUser(null);
             }
         });
+        return unsub;
     }, []);
 
     

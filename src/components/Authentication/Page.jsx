@@ -15,7 +15,12 @@ function SignInSignUpPage({user}) {
   const [upemail,setupEmail]=useState("");
   const [uppassword,setupPassword]=useState("");
   const [Username,setUsername]=useState("");
+  const [confirmPassword,setConfirmPassword]=useState("");
   const signupUser = () => {
+    if (uppassword !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
     createUserWithEmailAndPassword(auth, upemail, uppassword)
       .then((userCredential) => {
         // Update the user's profile with the username
@@ -72,7 +77,7 @@ function SignInSignUpPage({user}) {
               </div>
               <div className="input-group">
                 <i className="bx bxs-lock-alt"></i>
-                <input type="password" placeholder="Confirm password" />
+                <input onChange={e=>setConfirmPassword(e.target.value)} value={confirmPassword} type="password" placeholder="Confirm password" />
               </div>
               <button onClick={signupUser}>Sign up</button>
               <p>

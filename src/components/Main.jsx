@@ -21,18 +21,17 @@ const Main = () => {
   const [logged, setLogged] = useState("Join Us");
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsub = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        setLogged("Go to Profile");
       } else {
         setUser(null);
+        setLogged("Join Us");
       }
     });
-
-    if (user !== null) {
-      setLogged("Go to Profile");
-    }
-  });
+    return unsub;
+  }, []);
 
   
     return (

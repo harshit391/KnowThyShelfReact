@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Calender from "../Calender/Calender";
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import {app} from "../../../context/Firebase";
 const auth=getAuth(app);
 
@@ -9,20 +9,17 @@ const Left = () => {
     const [username,setUsername]=useState("null");
 
     useEffect(()=>{
-        onAuthStateChanged(auth,(user)=>{
+        const unsub = onAuthStateChanged(auth,(user)=>{
           if(user){
             setUser(user);
-           
+            setUsername(user.displayName);
           }
           else{
             setUser(null);
           }
-        })
-
-        if (user) {
-            setUsername(user.displayName);
-        }
-      })
+        });
+        return unsub;
+      }, [])
 
 
     

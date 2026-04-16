@@ -13,8 +13,8 @@ const Right = () => {
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <div className="links">
-                    <a href="">Recommendations</a>
-                    <a href="">General Update</a>
+                    <span>Recommendations</span>
+                    <span>General Update</span>
                 </div>
             </div>
             <div className="read-graph">
@@ -22,7 +22,7 @@ const Right = () => {
                 <img  src="images/mo-removebg-preview.png" alt=""/>
             </div>
             <div className="read-challenge">
-                <h5>2024 Reading Challenge</h5>
+                <h5>{new Date().getFullYear()} Reading Challenge</h5>
                 <div className="read-ele">
                     <div className="read-left">
                         <img src="./images/challenge.png" alt=""/>
@@ -31,16 +31,16 @@ const Right = () => {
                         <h5>0</h5>
                         <p>books completed</p>
                         <p className="behindsched">18 books behind schedule</p>
-                        <a href="">View Challenge</a>
+                        <span>View Challenge</span>
                     </div>
-                </div>  
+                </div>
             </div>
             <div className="want-to-read">
                 <div className="wtr-content">
                     <img src="images/images.png" alt=""/>
                     <h5>What do you want to read next?</h5>
                 </div>
-                <a style={{textAlign: "center"}} href="">Recommendations</a>
+                <span style={{textAlign: "center"}}>Recommendations</span>
             </div>
         </div>
     )

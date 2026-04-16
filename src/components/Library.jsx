@@ -19,7 +19,7 @@ function LibraryComponent() {
     useEffect(() => {
         const fetchBooks = async (genre) => {
             try {
-                const response = await fetch('https://www.googleapis.com/books/v1/volumes?q=' + genre);
+                const response = await fetch('https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(genre));
                 const data = await response.json();
                 return data.items;
             } catch (error) {
@@ -48,13 +48,14 @@ function LibraryComponent() {
     const [user, setUser] = useState(null);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsub = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       } else {
         setUser(null);
       }
     });
+    return unsub;
   }, []);
 
     if (user) {
